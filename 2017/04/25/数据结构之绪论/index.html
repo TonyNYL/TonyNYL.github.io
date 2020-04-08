@@ -1,0 +1,1234 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="数据结构," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="TonyNYL" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/25101221?v=3&u=1460cf6aa7c8d57b73bf3d142b3ca5398211b2da&s=400?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="简介
+
+什么是数据结构？一般来讲，用来解决一个具体问题时，大致需要下列几个步骤：首先从具体问题抽象出一个适当的数学模型，然后设计一个解此数学模型的算法，最后编出程序，进行测试，调整直至得到最终答案。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构之绪论">
+<meta property="og:url" content="https://tonynyl.github.io/2017/04/25/数据结构之绪论/index.html">
+<meta property="og:site_name" content="TonyNYL">
+<meta property="og:description" content="简介
+
+什么是数据结构？一般来讲，用来解决一个具体问题时，大致需要下列几个步骤：首先从具体问题抽象出一个适当的数学模型，然后设计一个解此数学模型的算法，最后编出程序，进行测试，调整直至得到最终答案。">
+<meta property="og:image" content="https://tonynyl.github.io/2017/04/25/数据结构之绪论/1.png">
+<meta property="og:image" content="https://tonynyl.github.io/2017/04/25/数据结构之绪论/2.png">
+<meta property="og:image" content="https://tonynyl.github.io/2017/04/25/数据结构之绪论/3.png">
+<meta property="og:image" content="https://tonynyl.github.io/2017/04/25/数据结构之绪论/4.png">
+<meta property="og:updated_time" content="2017-04-27T09:14:04.137Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据结构之绪论">
+<meta name="twitter:description" content="简介
+
+什么是数据结构？一般来讲，用来解决一个具体问题时，大致需要下列几个步骤：首先从具体问题抽象出一个适当的数学模型，然后设计一个解此数学模型的算法，最后编出程序，进行测试，调整直至得到最终答案。">
+<meta name="twitter:image" content="https://tonynyl.github.io/2017/04/25/数据结构之绪论/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://tonynyl.github.io/2017/04/25/数据结构之绪论/"/>
+
+
+
+
+
+  <title> 数据结构之绪论 | TonyNYL </title>
+
+  <style>
+    .forkme{
+   display: none;
+   }
+    @media (min-width: 768px) {
+   .forkme{
+   display: inline;
+   }
+    }
+    </style>
+  <script src="/js/src/photoswipe.min.js?v=5.1.0"></script>
+  <script src="/js/src/photoswipe-ui-default.min.js?v=5.1.0"></script>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+  <a href="https://github.com/TonyNYL" class="forkme"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">TonyNYL</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">宁原隆个人博客</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photos">
+          <a href="/photos" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-menu-item-icon fa fa-fw fa-camera"></i> <br />
+            
+            相册
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://tonynyl.github.io/2017/04/25/数据结构之绪论/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TonyNYL">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TonyNYL">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                数据结构之绪论
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-25T19:05:31+08:00">
+                2017-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"><p>简介</p>
+</blockquote>
+<h3 id="什么是数据结构？"><a href="#什么是数据结构？" class="headerlink" title="什么是数据结构？"></a>什么是数据结构？</h3><p>一般来讲，用来解决一个具体问题时，大致需要下列几个步骤：首先从具体问题抽象出一个适当的数学模型，然后设计一个解此数学模型的算法，最后编出程序，进行测试，调整直至得到最终答案。</p>
+<a id="more"></a>
+<h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p>概括地说：数据结构是一门讨论“描述现实世界实体的数学模型（非数值计算）及其上的操作在计算机中如何表示和实现”的学科。<br>或者说，数据结构是一门研究非数值计算的课程设计问题中计算机的操作对象以及它们之间的关系和操作等的学科。</p>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><ol>
+<li><p>图书馆的数目检索系统采用线性关系的数据结构。</p>
+</li>
+<li><p>多叉路口交通灯的管理问题，采用了图状关系的数据结构。</p>
+</li>
+<li><p>计算机和人对弈的问题，采用了树形关系的数据结构。</p>
+</li>
+</ol>
+<h3 id="基本概念和术语"><a href="#基本概念和术语" class="headerlink" title="基本概念和术语"></a>基本概念和术语</h3><h4 id="概念和术语"><a href="#概念和术语" class="headerlink" title="概念和术语"></a>概念和术语</h4><p>1.数据： 所有能输入到计算机中，且能被计算机程序处理的符号的总称。是计算机操作的对象的总称。是计算机处理的信息的某种特定的符号表示形式。</p>
+<p>2.数据元素： 是数据（集合）中的一个“个体”，是数据结构中讨论的基本单位。可由若干个数据项组成。</p>
+<p>3.数据项： 数据结构中的最小单位。数据元素可以是数据项的集合。<br>  例如：描述一个运动员的数据元素可以是：如下图</p>
+<p><img src="/2017/04/25/数据结构之绪论/1.png" alt="1"></p>
+<p>4.数据对象： 是性质相同的数据元素的集合，是数据的一个子集。</p>
+<p>5.数据结构： 带结构的数据元素的集合。是相互之间存在一种或多种特定关系的数据元素的集合。</p>
+<h4 id="数据的逻辑结构的分类"><a href="#数据的逻辑结构的分类" class="headerlink" title="数据的逻辑结构的分类"></a>数据的逻辑结构的分类</h4><ol>
+<li><p>集合：结构中的数据元素之间除了“同属一个集合”的关系外，别无其他关系。</p>
+</li>
+<li><p>线性结构：结构的数据元素之间存在着一对一的关系，即一个数据元素只与另一个数据元素有关系。</p>
+</li>
+<li><p>树形结构：结构的数据元素之间存在着一对多的关系，即一个数据元素只与另外多个数据元素有关系。</p>
+</li>
+<li><p>图状结构或网状结构：结构的数据元素之间存在着多对多的关系，即数据元素之间有多个关系。</p>
+</li>
+</ol>
+<p>如下图所示为上述4类基本结构的示意图：</p>
+<p><img src="/2017/04/25/数据结构之绪论/2.png" alt="2"></p>
+<h4 id="数据结构的形式定义"><a href="#数据结构的形式定义" class="headerlink" title="数据结构的形式定义"></a>数据结构的形式定义</h4><ol>
+<li>数据结构是一个二元组：Data_Structures = (D,S)<br>其中：D是数据元素的有限集，S是D上关系的有限集。</li>
+</ol>
+<h4 id="逻辑结构与物理结构"><a href="#逻辑结构与物理结构" class="headerlink" title="逻辑结构与物理结构"></a>逻辑结构与物理结构</h4><ol>
+<li><p>逻辑结构：数据元素之间的逻辑关系称为数据的逻辑结构。<br>数据的逻辑结构可以看作是从具体问题抽象出来的数学模型，它与数据的存储无关。该结构是为了方便计算和理解，人为规定的。从数学的角度观察，逻辑结构可形式化定义为（D，R），D是数据元素的集合，R是D上关系的有限数据元素的集合。</p>
+</li>
+<li><p>物理结构：数据结构在计算机中的表示（又称映像）称为数据的物理结构，或称存储结构。它所研究的是数据结构在计算机中的实现方法，包括数据结构中元素的表示及元素间关系的表示。<br>如线性结构，既要存储数据元素A，B，C，D又要存储他们之间的关系AB，BC，CD那么，是用一片连续的内存单元来存放这些记录（如用数组表示），还是随机存放各结点数据再用指针进行链接呢？这就是物理结构的问题。根据分析该结构是线性关系，故采用数组来存储。</p>
+</li>
+</ol>
+<h4 id="顺序存储结构与链式存储结构"><a href="#顺序存储结构与链式存储结构" class="headerlink" title="顺序存储结构与链式存储结构"></a>顺序存储结构与链式存储结构</h4><ol>
+<li><p>数据元素之间的关系在计算机中有两种不同的表示方法：顺序映像和非顺序映像，并由此得到两种不同的存储结构：顺序存储结构和链式存储结构。</p>
+</li>
+<li><p>顺序存储结构：以相对的存储位置表示后继关系。<br>例如：令y的存储位置和x的存储位置之间差一个常量C，而C是一个隐含值，整个存储结构中只含数据元素本身的信息。如下图：</p>
+<p><img src="/2017/04/25/数据结构之绪论/3.png" alt="3"></p>
+</li>
+<li><p>链式存储结构：以附加信息（指针）表示后继关系。需要用一个和x在一起的附加信息指示y的存储位置。如下图：</p>
+<p><img src="/2017/04/25/数据结构之绪论/4.png" alt="4"></p>
+</li>
+</ol>
+<h3 id="抽象数据类型"><a href="#抽象数据类型" class="headerlink" title="抽象数据类型"></a>抽象数据类型</h3><ol>
+<li><p>数据类型：是一个值的集合和定义在此集合上的一组操作的总称。在高级程序设计语言中，数据类型可分为两类：一类是非结构的原子类型，另一类则是结构类型。</p>
+</li>
+<li><p>抽象数据类型（Abstract Data Type，简称ADT）：是指一个数学模型以及定义在该模型上的一组操作。例如，抽象数据类型复数的定义：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">ADT Complex&#123;</div><div class="line">数据对象：</div><div class="line">    D = &#123;e1,e2|e1,e2∈RealSet&#125;</div><div class="line">数据关系：</div><div class="line">    R1 = &#123;&lt;e1,e2&gt;|e1是复数的实数部分|e2是复数的虚数部分&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>抽象数据类型三元组的定义</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">ADT Triplet &#123;</div><div class="line">    数据对象：D = &#123;e1,e2,e3|e1,e2,e3∈(定义了关系运算的某个集合)&#125;</div><div class="line">    数据关系：R1 = &#123;&lt;e1,e2&gt;,&lt;e2,e3&gt;&#125;</div><div class="line">    基本操作：</div><div class="line">        InitTriplet(&amp;T, v1, v2, v3)</div><div class="line">            操作结果：构造了三元数组T，元素e1，e2和e3分别被赋以参数v1，v2和v3的值。</div><div class="line">        DestroyTriplet(&amp;T)</div><div class="line">            操作结果：三元组T被销毁。</div><div class="line">        Get(T, i, &amp;e)</div><div class="line">            初始条件：三元组T已存在，<span class="number">1</span>&lt;=i&lt;=<span class="number">3</span>。</div><div class="line">            操作结果：用e返回T的第i元的值。</div><div class="line">        Put(&amp;T, i, e)</div><div class="line">            初始条件：三元组T已存在，<span class="number">1</span>&lt;=i&lt;=<span class="number">3</span>。</div><div class="line">            操作结果：改变T的第i元的值为e。</div><div class="line">        IsAscending(T)</div><div class="line">            初始条件：三元组T已存在。</div><div class="line">            操作结果：如果T的<span class="number">3</span>个元素按升序排列，则返回<span class="number">1</span>，否则返回<span class="number">0</span>。</div><div class="line">        Isdescenting(T)</div><div class="line">            初始条件：三元组T已存在。</div><div class="line">            操作结果：如果T的<span class="number">3</span>个元素按降序排列，则返回<span class="number">1</span>，否则返回<span class="number">0</span>。</div><div class="line">        Max(T,&amp;e)</div><div class="line">            初始条件：三元组T已存在。</div><div class="line">            操作结果：用e返回T的<span class="number">3</span>个元素中的最大值。</div><div class="line">        Min(T,&amp;e)</div><div class="line">            初始条件：三元组T已存在。</div><div class="line">            操作结果：用e返回T的<span class="number">3</span>个元素中的最小值。</div><div class="line">&#125;ADT Triplet</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="抽象数据类型三元组的实现"><a href="#抽象数据类型三元组的实现" class="headerlink" title="抽象数据类型三元组的实现"></a>抽象数据类型三元组的实现</h4>  <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="function">Status <span class="title">InitTriplet</span><span class="params">(Triplet &amp;T,ElemType v1,ElemType v2,ElemType v3)</span></span>&#123;</div><div class="line">    <span class="comment">//构造三元组T，依次置T的3个元素的初值为v1，v2，v3.</span></div><div class="line">    T = (ElemType * ) <span class="built_in">malloc</span> (<span class="number">3</span> * <span class="keyword">sizeof</span>(ElemType));    <span class="comment">//分配3个元素的存储空间</span></div><div class="line">    <span class="keyword">if</span>(!T) <span class="built_in">exit</span>(OVERFLOW);                              <span class="comment">//分配存储空间失败</span></div><div class="line">    T[<span class="number">0</span>] = v1;  T[<span class="number">1</span>] = v2;  T[<span class="number">2</span>] = v3;</div><div class="line">    <span class="keyword">return</span> OK;</div><div class="line">&#125; <span class="comment">// InitTriplet</span></div><div class="line"></div><div class="line"><span class="function">Status <span class="title">DestroyTriplet</span><span class="params">(Triplet &amp;T)</span></span>&#123;</div><div class="line">    <span class="comment">// 销毁三元组</span></div><div class="line">    <span class="built_in">free</span>(T);  T = <span class="literal">NULL</span>;</div><div class="line">    <span class="keyword">return</span> OK;</div><div class="line">&#125; <span class="comment">// DestroyTriplet</span></div><div class="line"></div><div class="line"><span class="function">Status <span class="title">Get</span><span class="params">(Triplet T,<span class="keyword">int</span> i,ElemType %e)</span></span>&#123;</div><div class="line">    <span class="comment">// 1 &lt;= 3,用e返回T第i元的值。</span></div><div class="line">    <span class="keyword">if</span>(i&lt;<span class="number">1</span> || i&gt;<span class="number">3</span>) <span class="keyword">return</span> ERROR;</div><div class="line">    e = T[i<span class="number">-1</span>];</div><div class="line">    <span class="keyword">return</span> OK;</div><div class="line">&#125; <span class="comment">// Get</span></div><div class="line"></div><div class="line"><span class="function">Status <span class="title">Put</span><span class="params">(Triplet &amp;T,<span class="keyword">int</span> i,ElemType e)</span></span>&#123;</div><div class="line">    <span class="comment">// 1 &lt;= 3,用e返回T第i元的值。</span></div><div class="line">    <span class="keyword">if</span>(i&lt;<span class="number">1</span> || i&gt;<span class="number">3</span>) <span class="keyword">return</span> ERROR;</div><div class="line">    T[i<span class="number">-1</span>] = e;</div><div class="line">    <span class="keyword">return</span> OK;</div><div class="line">    &#125; <span class="comment">// put</span></div><div class="line"></div><div class="line"><span class="function">Status <span class="title">IsAscending</span><span class="params">(Triplet T)</span></span>&#123;</div><div class="line">    <span class="comment">// 如果T的3个元素按照升序排列，则返回1，否则返回0</span></div><div class="line">    <span class="keyword">return</span> (T[<span class="number">0</span>]&gt;=T[<span class="number">1</span>])&amp;&amp;(T[<span class="number">1</span>]&gt;=T[<span class="number">2</span>]);</div><div class="line">&#125; <span class="comment">// IsAscending</span></div><div class="line"></div><div class="line"><span class="function">Status <span class="title">IsDesending</span><span class="params">(Triplet T)</span></span>&#123;</div><div class="line">    <span class="comment">// 如果T的3个元素按照升序排列，则返回1，否则返回0</span></div><div class="line">    <span class="keyword">return</span> (T[<span class="number">0</span>]&lt;=T[<span class="number">1</span>])&amp;&amp;(T[<span class="number">1</span>]&lt;=T[<span class="number">2</span>]);</div><div class="line">&#125; <span class="comment">// IsDesending</span></div><div class="line"></div><div class="line"><span class="function">Status <span class="title">Max</span><span class="params">(Triplet T,ElemType &amp;e)</span></span>&#123;</div><div class="line">    e = (T[<span class="number">0</span>] &gt;= T[<span class="number">1</span>]) ? (T[<span class="number">0</span>] &gt;= T[<span class="number">2</span>] ? T[<span class="number">0</span>] : T[<span class="number">2</span>]) : (T[<span class="number">1</span>] &gt;= T[<span class="number">2</span>] ? T[<span class="number">1</span>] : T[<span class="number">2</span>]);</div><div class="line">    <span class="keyword">return</span> OK;</div><div class="line">&#125; <span class="comment">//Max</span></div><div class="line"></div><div class="line"><span class="function">Status <span class="title">Min</span><span class="params">(Triplet T,ElemType &amp;e)</span></span>&#123;</div><div class="line">    e = (T[<span class="number">0</span>] &lt;= T[<span class="number">1</span>]) ? (T[<span class="number">0</span>] &lt;= T[<span class="number">2</span>] ? T[<span class="number">0</span>] : T[<span class="number">2</span>]) : (T[<span class="number">1</span>] &lt;= T[<span class="number">2</span>] ? T[<span class="number">1</span>] : T[<span class="number">2</span>]);</div><div class="line">    <span class="keyword">return</span> OK;</div><div class="line">&#125; <span class="comment">//Min</span></div></pre></td></tr></table></figure>
+<h4 id="数据结构之抽象数据类型三元组的完整实现"><a href="#数据结构之抽象数据类型三元组的完整实现" class="headerlink" title="数据结构之抽象数据类型三元组的完整实现"></a>数据结构之抽象数据类型三元组的完整实现</h4>  <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//宏定义</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> TRUE 1</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> OK 1</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> ERROR 0</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> FASE 0</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> INFEASIBLE -1</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> OVERFLOW -2</span></div><div class="line"></div><div class="line"><span class="comment">//头文件</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> Status;</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> *Triplet;</div><div class="line"></div><div class="line"><span class="comment">//初始化三元组</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">initTriplet</span><span class="params">(Triplet &amp;T, <span class="keyword">int</span> v1, <span class="keyword">int</span> v2, <span class="keyword">int</span> v3)</span></span></div><div class="line">&#123;</div><div class="line">    T = (<span class="keyword">int</span> *)<span class="built_in">malloc</span>(<span class="number">3</span> * <span class="keyword">sizeof</span>(<span class="keyword">int</span>));</div><div class="line">    <span class="keyword">if</span> (!T)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">exit</span>(OVERFLOW);</div><div class="line">    &#125;</div><div class="line">    T[<span class="number">0</span>] = v1;</div><div class="line">    T[<span class="number">1</span>] = v2;</div><div class="line">    T[<span class="number">2</span>] = v3;</div><div class="line">    <span class="keyword">return</span> OK;</div><div class="line">&#125;</div><div class="line"><span class="comment">//销毁三元组</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">destroyTriplet</span><span class="params">(Triplet &amp;T)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">free</span>(T);</div><div class="line">    T= <span class="literal">NULL</span>;</div><div class="line">    <span class="keyword">return</span> OK;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//获取三元组中的值</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">get</span><span class="params">(Triplet T, <span class="keyword">int</span> i, <span class="keyword">int</span> &amp;e)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (i &lt; <span class="number">1</span> || i&gt;<span class="number">3</span>)<span class="keyword">return</span> ERROR;</div><div class="line">    e = T[i - <span class="number">1</span>];</div><div class="line">    <span class="keyword">return</span> OK;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//向三元组中插入值</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">put</span><span class="params">(Triplet T, <span class="keyword">int</span> i, <span class="keyword">int</span> e)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (i &lt; <span class="number">1</span> || i&gt;<span class="number">3</span>)<span class="keyword">return</span> ERROR;</div><div class="line">    T[i - <span class="number">1</span>] = e;</div><div class="line">    <span class="keyword">return</span> OK;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//判断是否升序</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">isAscending</span><span class="params">(Triplet T)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> T[<span class="number">0</span>] &lt;= T[<span class="number">1</span>] &amp;&amp; T[<span class="number">1</span>] &lt;= T[<span class="number">2</span>];</div><div class="line">    <span class="keyword">return</span> OK;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//判断是否降序</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">isDscending</span><span class="params">(Triplet T)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">return</span> T[<span class="number">0</span>] &gt;= T[<span class="number">1</span>] &amp;&amp; T[<span class="number">1</span>] &gt;= T[<span class="number">2</span>];</div><div class="line">    <span class="keyword">return</span> OK;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//求三元组中的最大值</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">max</span><span class="params">(Triplet T, <span class="keyword">int</span> &amp;e)</span></span></div><div class="line">&#123;</div><div class="line">    e = T[<span class="number">0</span>] &gt;= T[<span class="number">1</span>] ? (T[<span class="number">0</span>] &gt;= T[<span class="number">2</span>] ? T[<span class="number">0</span>] : T[<span class="number">2</span>]) : (T[<span class="number">1</span>] &gt;= T[<span class="number">2</span>] ? T[<span class="number">1</span>] : T[<span class="number">2</span>]);</div><div class="line">    <span class="keyword">return</span> OK;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//求三元组中的最小值</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">min</span><span class="params">(Triplet T, <span class="keyword">int</span> &amp;e)</span></span></div><div class="line">&#123;</div><div class="line">    e = T[<span class="number">0</span>] &lt;= T[<span class="number">1</span>] ? (T[<span class="number">0</span>] &lt;= T[<span class="number">2</span>] ? T[<span class="number">0</span>] : T[<span class="number">2</span>]) : (T[<span class="number">1</span>] &lt;= T[<span class="number">2</span>] ? T[<span class="number">1</span>] : T[<span class="number">2</span>]);</div><div class="line">    <span class="keyword">return</span> OK;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//测试</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> *t = <span class="literal">NULL</span>;</div><div class="line">    <span class="keyword">int</span> e;</div><div class="line">    initTriplet(t,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>);</div><div class="line">    get(t, <span class="number">1</span>, e);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d\n"</span>, e,t[<span class="number">1</span>],t[<span class="number">2</span>]);</div><div class="line">    put(t, <span class="number">1</span>, <span class="number">4</span>);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d %d %d\n"</span>, t[<span class="number">0</span>], t[<span class="number">1</span>], t[<span class="number">2</span>]);</div><div class="line">    initTriplet(t, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</div><div class="line">    <span class="keyword">if</span> (isAscending(t))<span class="built_in">printf</span>(<span class="string">"YES\n"</span>);</div><div class="line">    initTriplet(t, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>);</div><div class="line">    <span class="keyword">if</span> (isDscending(t))<span class="built_in">printf</span>(<span class="string">"YES\n"</span>);</div><div class="line">    max(t, e);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,e);</div><div class="line">    min(t, e);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, e);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="算法和算法分析"><a href="#算法和算法分析" class="headerlink" title="算法和算法分析"></a>算法和算法分析</h3><h4 id="算法的特性"><a href="#算法的特性" class="headerlink" title="算法的特性"></a>算法的特性</h4><ol>
+<li><p>算法（Algorithm）是对特定问题求解步骤的一种描述，是指令的有限序列。其中每一条指令表示一个或多个操作。<br>一个算法应该具有下列特性：<br>⑴ 有穷性。一个算法必须在有穷步之后结束，即必须在有限时间内完成。<br>⑵ 确定性。算法的每一步必须有确切的定义，无二义性。算法的执行对应着的相同的输入仅有唯一的一条路经。<br>⑶ 可行性。算法中的每一步都可以通过已经实现的基本运算的有限次执行得以实现。<br>⑷ 输入。一个算法具有零个或多个输入，这些输入取自特定的数据对象集合。<br>⑸ 输出。一个算法具有一个或多个输出，这些输出同输入之间存在某种特定的关系。</p>
+</li>
+<li><p>算法设计要求：<br>⑴ 正确性。算法的执行结果应当满足预先规定的功能和性能要求。<br>⑵ 可读性。一个算法应当思路清晰、层次分明、简单明了、易读易懂。<br>⑶ 健壮性。当输入不合法数据时，应能作适当处理，不至引起严重后果。<br>⑷ 效率与低存储量要求（高效）。有效使用存储空间和有较高的时间效率。</p>
+</li>
+</ol>
+<h4 id="算法性能分析与度量"><a href="#算法性能分析与度量" class="headerlink" title="算法性能分析与度量"></a>算法性能分析与度量</h4><ol>
+<li><p>算法效率的度量：度量一个程序的执行时间通常有两种方法：<br>（1）事后统计的方法<br>   缺点：a.必须执行程序 b.其他因素掩盖算法本质<br>（2）事后分析估计的方法<br>   一个高级语言编写的程序在计算机上运行所消耗的时间取决于下列因素：a.算法选用的策略 b.问题的规模 c.编写程序的语言 d.编译程序产生的机器代码的质量 e.计算机执行指令的速度</p>
+</li>
+<li><p>时间复杂度<br>一个程序的时间复杂度（Time complexity）是指程序运行从开始到结束所需要的时间。</p>
+<p>一个算法是由控制结构和原操作构成的，其执行时间取决于两者的综合效果。为了便于比较同一问题的不同的算法，通常的做法是：<br>从算法中选取一种对于所研究的问题来说基本运算的原操作，以该原操作重复执行的次数作为算法的时间度量。</p>
+<p>一般情况下，算法中基本操作重复执行的次数是规模n 的某个函数f(n),算法的时间度量记作<br>T(n) = O(f(n))<br>它表示随着问题规模n的增大，算法执行时间的增长率和f(n)的增长率相同，称作算法的渐进时间复杂度，简称时间复杂度（Time complexity）</p>
+<p>例如，一个程序的实际执行时间为T(n)＝2.7n3+3.8n2+5.3。则T(n)＝Ο(n3)。使用大Ο记号表示的算法的时间复杂度，称为算法的渐进时间复杂度(Asymptotic Time Complexity)。</p>
+<p>通常用Ο(1)表示常数计算时间。常见的渐进时间复杂度有：<br>Ο(1)＜Ο(log2n)＜Ο(n)＜Ο(nlog2n)＜Ο(n2)＜Ο(n3)＜Ο(2n)</p>
+</li>
+<li><p>空间复杂度<br>一个程序的空间复杂度（Space complexity）是指程序运行从开始到结束所需的存储量。</p>
+<p>算法的空间复杂度的定义为：<br>S(n) = O(g(n))<br>表示随着问题规模n的增大，算法运行所需存储量的增长率相同。</p>
+<p>算法的存储量包括：a.输入数据所占空间  b.程序本身所占空间  c.辅助变量所占空间</p>
+</li>
+</ol>
+<blockquote class="blockquote-center"><p>结语</p>
+</blockquote>
+<p>接下来，我将继续学习数据结构！！！</p>
+<p>最近访客</p>
+<div class="ds-recent-visitors" data-num-items="39" data-avatar-size="40" id="ds-recent-visitors"></div>
+      
+    </div>
+
+    <div align="center">
+      
+        <div class="copyright">
+        <p><span>
+        <b>本文地址：</b><a href="/2017/04/25/数据结构之绪论/" title="数据结构之绪论">https://tonynyl.github.io/2017/04/25/数据结构之绪论/</a><br/><b>转载请注明出处，谢谢！</b>
+        </span></p>
+        </div>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay-reward-image.jpg" alt="TonyNYL Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/18/Spring-Boot快速入门/" rel="next" title="Spring Boot快速入门">
+                <i class="fa fa-chevron-left"></i> Spring Boot快速入门
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/27/线性表/" rel="prev" title="线性表">
+                线性表 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="TonyNYL" />
+          <p class="site-author-name" itemprop="name">TonyNYL</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/TonyNYL" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://douban.com/" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  豆瓣
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-link"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://tonynyl.github.io/yuanlong/" title="主页" target="_blank">主页</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是数据结构？"><span class="nav-number">1.</span> <span class="nav-text">什么是数据结构？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概念"><span class="nav-number">1.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例"><span class="nav-number">1.2.</span> <span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念和术语"><span class="nav-number">2.</span> <span class="nav-text">基本概念和术语</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概念和术语"><span class="nav-number">2.1.</span> <span class="nav-text">概念和术语</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据的逻辑结构的分类"><span class="nav-number">2.2.</span> <span class="nav-text">数据的逻辑结构的分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据结构的形式定义"><span class="nav-number">2.3.</span> <span class="nav-text">数据结构的形式定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#逻辑结构与物理结构"><span class="nav-number">2.4.</span> <span class="nav-text">逻辑结构与物理结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#顺序存储结构与链式存储结构"><span class="nav-number">2.5.</span> <span class="nav-text">顺序存储结构与链式存储结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象数据类型"><span class="nav-number">3.</span> <span class="nav-text">抽象数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#抽象数据类型三元组的实现"><span class="nav-number">3.1.</span> <span class="nav-text">抽象数据类型三元组的实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据结构之抽象数据类型三元组的完整实现"><span class="nav-number">3.2.</span> <span class="nav-text">数据结构之抽象数据类型三元组的完整实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法和算法分析"><span class="nav-number">4.</span> <span class="nav-text">算法和算法分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#算法的特性"><span class="nav-number">4.1.</span> <span class="nav-text">算法的特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法性能分析与度量"><span class="nav-number">4.2.</span> <span class="nav-text">算法性能分析与度量</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="heart">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TonyNYL</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+<!-- 新增访客统计代码 -->
+
+<div class="busuanzi-count">
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      访问用户： <span class="busuanzi-value" id="busuanzi_value_site_uv"></span> 人
+    </span>
+    <div class="powered-by"></div>
+    <span class="site-uv">
+      <i class="fa fa-eye"></i>
+      访问次数： <span class="busuanzi-value" id="busuanzi_value_site_pv"></span> 次
+    </span>
+    <div class="powered-by"></div>
+    <!-- 博客字数统计 -->
+    <span class="site-pv">
+      <i class="fa fa-pencil"></i>
+      博客全站共： <span class="post-count">22.5k</span> 字
+    </span>
+</div>
+<!-- 新增访客统计代码 END-->
+
+
+<!-- 在网页底部添加网站运行时间 -->
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("03/31/2017 00:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "Run for "+dnum+" Days ";
+        document.getElementById("times").innerHTML = hnum + " Hours " + mnum + " m " + snum + " s";
+    }
+setInterval("createtime()",250);
+</script>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+
+  
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+<script type="text/javascript" src="/js/src/photoswipe.min.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/photoswipe-ui-default.min.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1203 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="数据结构," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="TonyNYL" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/25101221?v=3&u=1460cf6aa7c8d57b73bf3d142b3ca5398211b2da&s=400?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="简介
+
+什么是线性表？线性表是一种线性结构。线性结构的特点是数据元素之间是一种线性关系，数据元素“一个接一个的排列”。在一个线性表中数据元素的类型是相同的，或者说线性表是由同一类型的数据元素构成的线性结构。在实际问题中线性表的例子是很多的，如学生情况信息表是一个线性表：表中数据元素的类型为学生类型; 一个字符串也是一个线性表：表中数据元素的类型为字符型，等等。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="线性表">
+<meta property="og:url" content="https://tonynyl.github.io/2017/04/27/线性表/index.html">
+<meta property="og:site_name" content="TonyNYL">
+<meta property="og:description" content="简介
+
+什么是线性表？线性表是一种线性结构。线性结构的特点是数据元素之间是一种线性关系，数据元素“一个接一个的排列”。在一个线性表中数据元素的类型是相同的，或者说线性表是由同一类型的数据元素构成的线性结构。在实际问题中线性表的例子是很多的，如学生情况信息表是一个线性表：表中数据元素的类型为学生类型; 一个字符串也是一个线性表：表中数据元素的类型为字符型，等等。">
+<meta property="og:image" content="https://tonynyl.github.io/2017/04/27/线性表/1.jpg">
+<meta property="og:image" content="https://tonynyl.github.io/2017/04/27/线性表/2.png">
+<meta property="og:image" content="https://tonynyl.github.io/2017/04/27/线性表/3.jpg">
+<meta property="og:image" content="https://tonynyl.github.io/2017/04/27/线性表/4.jpg">
+<meta property="og:updated_time" content="2017-07-19T10:29:47.426Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="线性表">
+<meta name="twitter:description" content="简介
+
+什么是线性表？线性表是一种线性结构。线性结构的特点是数据元素之间是一种线性关系，数据元素“一个接一个的排列”。在一个线性表中数据元素的类型是相同的，或者说线性表是由同一类型的数据元素构成的线性结构。在实际问题中线性表的例子是很多的，如学生情况信息表是一个线性表：表中数据元素的类型为学生类型; 一个字符串也是一个线性表：表中数据元素的类型为字符型，等等。">
+<meta name="twitter:image" content="https://tonynyl.github.io/2017/04/27/线性表/1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://tonynyl.github.io/2017/04/27/线性表/"/>
+
+
+
+
+
+  <title> 线性表 | TonyNYL </title>
+
+  <style>
+    .forkme{
+   display: none;
+   }
+    @media (min-width: 768px) {
+   .forkme{
+   display: inline;
+   }
+    }
+    </style>
+  <script src="/js/src/photoswipe.min.js?v=5.1.0"></script>
+  <script src="/js/src/photoswipe-ui-default.min.js?v=5.1.0"></script>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+  <a href="https://github.com/TonyNYL" class="forkme"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">TonyNYL</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">宁原隆个人博客</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photos">
+          <a href="/photos" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-menu-item-icon fa fa-fw fa-camera"></i> <br />
+            
+            相册
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://tonynyl.github.io/2017/04/27/线性表/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TonyNYL">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TonyNYL">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                线性表
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-27T18:04:36+08:00">
+                2017-04-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"><p>简介</p>
+</blockquote>
+<h3 id="什么是线性表？"><a href="#什么是线性表？" class="headerlink" title="什么是线性表？"></a>什么是线性表？</h3><p>线性表是一种线性结构。线性结构的特点是数据元素之间是一种线性关系，数据元素“一个接一个的排列”。在一个线性表中数据元素的类型是相同的，或者说线性表是由同一类型的数据元素构成的线性结构。<br>在实际问题中线性表的例子是很多的，如学生情况信息表是一个线性表：表中数据元素的类型为学生类型; 一个字符串也是一个线性表：表中数据元素的类型为字符型，等等。</p>
+<a id="more"></a>
+<h4 id="线性结构的特点为"><a href="#线性结构的特点为" class="headerlink" title="线性结构的特点为"></a>线性结构的特点为</h4><p>在数据元素的非空有限集中</p>
+<ol>
+<li>集合中存在唯一的一个“第一元素”</li>
+<li>集合中存在唯一的一个“最后元素”</li>
+<li>除最后元素在外，具有唯一的后继</li>
+<li>除第一元素之外，均有唯一的后继</li>
+</ol>
+<h3 id="线性表的类型定义"><a href="#线性表的类型定义" class="headerlink" title="线性表的类型定义"></a>线性表的类型定义</h3><h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><ol>
+<li>数据表是最常用且最简单的一种数据结构。</li>
+<li>在稍复杂的线性表中，一个数据元素可以由若干个<strong>数据项</strong>（item）。在这种情况下，常把数据元素成为<strong>记录</strong>（record）,含大量记录的线性表又称为<strong>文件</strong>（file）。</li>
+<li>线性表定义如下：线性表是具有相同数据类型的n(n&gt;=0)个数据元素的有限序列，通常记为：  (a1，a2，… ai-1，ai，ai+1，…an)  其中n为表长， n＝0 时称为空表<br>表中相邻元素之间存在着顺序关系。将ai-1 称为ai 的直接前趋，ai+1 称为ai 的直接后继。就是说：对于ai，当i=2，…，n 时，有且仅有一个直接前趋ai-1.，当i=1，2，…，n-1 时，有且仅有一个直接后继ai+1，而a1 是表中第一个元素，它没有前趋，an 是最后一个元素无后继。</li>
+</ol>
+<h4 id="抽象数据类型线性表的定义"><a href="#抽象数据类型线性表的定义" class="headerlink" title="抽象数据类型线性表的定义"></a>抽象数据类型线性表的定义</h4>  <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">ADT List  &#123;  </div><div class="line">   数据对象：D = &#123;ai|ai∈EleamSet,i = <span class="number">1</span>,<span class="number">2</span>,...,n,n&gt;=<span class="number">0</span>&#125;</div><div class="line">   数据关系：R1 = &#123;&lt;ai<span class="number">-1</span>,ai&gt;|ai<span class="number">-1</span>,ai∈D,i = <span class="number">2</span>,...,n&#125;</div><div class="line">   基本操作：</div><div class="line">    InitList (&amp;L);</div><div class="line">        操作结果：构造一个空线性表<span class="function">L  </span></div><div class="line">    <span class="title">DestroyList</span><span class="params">(&amp;L)</span>;</div><div class="line">        初始条件：线性表L已存在</div><div class="line">        操作结果：销毁线性表<span class="function">L  </span></div><div class="line">    <span class="title">ClearList</span><span class="params">(&amp;L)</span>;</div><div class="line">        初始条件：线性表L已存在</div><div class="line">        操作结果：将L重置为空表  </div><div class="line">    ListEmpty(L);</div><div class="line">        初始条件：线性表L已存在</div><div class="line">        操作结果：判断若存在的表L为空表，返回TRUE，否则返回<span class="function">FALSE  </span></div><div class="line">    <span class="title">Listlength</span><span class="params">(L)</span>;</div><div class="line">        初始条件：线性表L已存在</div><div class="line">        操作结果：返回线性表L中的数据元素个数  </div><div class="line">    GetElem(L,i,&amp;e);</div><div class="line">        初始条件：线性表L已存在，<span class="number">1</span>&lt;=i&lt;=ListLength(L)</div><div class="line">        操作结果：用e返回L中第i个数据元素的值  </div><div class="line">    LocateElem(L,e,compare());</div><div class="line">        初始条件：线性表L已存在,compare()是数据元素判定函数</div><div class="line">        操作结果：返回l中第一个与e满足关系compare（）的元素的位序。若这样的数据元素不存在，则返回值为<span class="number">0</span>  </div><div class="line">    PriorElem(L,cur_e,&amp;pre_e);</div><div class="line">        初始条件：线性表L已存在</div><div class="line">        操作结果：若cur_e是L的数据元素（不是第一个），则用pre_e返回它的前驱，否则操作失败，pre_e无定义</div><div class="line">    NextElem(L,cur_e,&amp;next_e);</div><div class="line">        初始条件：线性表L已存在</div><div class="line">        操作结果：若cur_e是L的数据元素（不是最后一个），则用next_e返回它的后继，否则操作失败，next_e无定义</div><div class="line">    ListInsert(&amp;L,i,e);</div><div class="line">        初始条件：线性表L已存在，<span class="number">1</span>&lt;=i&lt;=ListLength(L)+<span class="number">1</span></div><div class="line">        操作结果：在L的第i个位置之前插入新的数据元素e，L的长度加<span class="number">1</span>  </div><div class="line">    ListDelete(&amp;L,i,&amp;e);</div><div class="line">        初始条件：线性表L已存在且非空</div><div class="line">        操作结果：删除L的第i个数据元素，并用e返回其值，L的长度减<span class="number">1</span>  </div><div class="line">    ListTraverse(L,vist());</div><div class="line">        初始条件：线性表L已存在</div><div class="line">        操作结果：依次对L的每个数据元素调用vist()。一旦visit()失败，则操作失败  </div><div class="line">&#125;ADT List</div></pre></td></tr></table></figure>
+<h4 id="合并线性表LA和LB"><a href="#合并线性表LA和LB" class="headerlink" title="合并线性表LA和LB"></a>合并线性表LA和LB</h4><p>假设利用两个线性表LA和LB分别表示两个集合A和B（即线性表中的数据元素即为集合中的成员），现要求一个新的集合A = A∪B。<br>操作：扩大线性表LA，将存在于线性表LB中而不存在线性表LA中的数据元素插入到线性表LA中去。只要从线性表LB中依次取得每个数据元素，并依值在线性表LA中进行查访，若不存在，则插之。<br>算法描述如下：<br>  <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(List &amp;La,List Lb)</span></span>&#123;</div><div class="line">  <span class="comment">//将所有在线性表Lb中但不在La中的数据元素插入到La中</span></div><div class="line">  La_len = ListLength(La);Lb_len = ListLength(Lb);<span class="comment">//求线性表的长度</span></div><div class="line">  <span class="keyword">for</span>(i = <span class="number">1</span>;i &lt;= Lb_len;i++)&#123;</div><div class="line">      GetElem(Lb,i,e);</div><div class="line">      <span class="keyword">if</span>(!LocateElem(La,e,equal))</div><div class="line">          ListInsert(La,++La_len,e);<span class="comment">//La中不存在和e相同的数据元素，则插入之</span></div><div class="line">  &#125;</div><div class="line"> &#125;<span class="comment">//union</span></div></pre></td></tr></table></figure></p>
+<p>该程序的时间复杂度为O( ListLength(La)* ListLength(Lb))</p>
+<h4 id="合并LA和LB为新的线性表LC"><a href="#合并LA和LB为新的线性表LC" class="headerlink" title="合并LA和LB为新的线性表LC"></a>合并LA和LB为新的线性表LC</h4><p>已知线性表LA和LB中的数据元素按非递减有序排列，现要求将LA和LB归并为一个新的线性表LC，且LC中的数据元素仍按非递减有序排列。<br>基本算法如下：<br>  <figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">MergeList</span><span class="params">(List La,List Lb,List &amp;Lc)</span></span>&#123;</div><div class="line">	<span class="comment">//已知线性表LA和LB中的数据元素按非递减有序排列</span></div><div class="line">	<span class="comment">//归并La和Lb得到新的线性表Lc,Lc的数据元素也非递减有序排列</span></div><div class="line">	InitList(Lc);</div><div class="line">	i = j = <span class="number">1</span>;</div><div class="line">	k = <span class="number">0</span>;</div><div class="line">	La_len = ListLength(La);Lb_len = ListLength(Lb);<span class="comment">//求线性表的长度</span></div><div class="line">	<span class="keyword">while</span>((i&lt;=La_len) &amp;&amp; (j&lt;=Lb_len))&#123;<span class="comment">//La和Lb均非空</span></div><div class="line">		GetElem(La,i,ai);</div><div class="line">		GetElem(Lb,j,bj);</div><div class="line">		<span class="keyword">if</span>(ai &lt;= bj)&#123;</div><div class="line">			ListInsert(Lc,++k,ai);</div><div class="line">			++i;</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			ListInsert(Lc,++k,bj);</div><div class="line">			++j;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">while</span>(i &lt;= La_len)&#123;</div><div class="line">		GetElem(La,i++,ai);</div><div class="line">		ListInsert(Lc,++k,ai);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">while</span>(i &lt;= Lb_len)&#123;</div><div class="line">		GetElem(Lb,j++,bj);</div><div class="line">		ListInsert(Lc,++k,bj);</div><div class="line">	&#125;</div><div class="line">&#125;<span class="comment">//MergeList</span></div></pre></td></tr></table></figure></p>
+<p>该程序的时间复杂度为O(ListLength(La)+ ListLength(Lb))</p>
+<h3 id="线性表的顺序表示和实现"><a href="#线性表的顺序表示和实现" class="headerlink" title="线性表的顺序表示和实现"></a>线性表的顺序表示和实现</h3><h4 id="线性表的顺序存储"><a href="#线性表的顺序存储" class="headerlink" title="线性表的顺序存储"></a>线性表的顺序存储</h4><ol>
+<li>线性表的顺序表示指的是用一组地址连续的存储单元依次存储线性表的数据元素。</li>
+<li>假设线性表的每个元素需占用L个存储单元，并以所占的第一个单元的存储地址作为数据元素的存储位置。<br>则线性表中第i+1个数据元素的存储位置LOC(ai+1)和第i个数据元素的存储位置LOC(ai)之间满足下列关系：<br>LOC(ai+1) = LOC(ai) + L<br>一般来说，线性表的第i个数据元素ai的存储位置为<br>LOC(ai) = LOC(a1) + (i-1)*L<br>式中LOC(ai)是线性表的第一个数据元素a1的存储位置，通常称做线性表的起始位置或基地址。</li>
+<li>线性表的这种（第二条）机内表示称作<strong>线性表的顺序存储结构或顺序映像</strong>，通常，称这种存储结构的线性表为顺序表。</li>
+<li>线性表的顺序存储结构示意图如下:</li>
+</ol>
+<p><img src="/2017/04/27/线性表/1.jpg" alt="1"></p>
+<h4 id="线性表的顺序表示与实现代码"><a href="#线性表的顺序表示与实现代码" class="headerlink" title="线性表的顺序表示与实现代码"></a>线性表的顺序表示与实现代码</h4><ol>
+<li><p>c语言动态分配的一维数组</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// --------线性表的动态分配顺序存储结构--------</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> LIST_INIT_SIZE 100 <span class="comment">// 线性表存储空间的初始分配量</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> LISTINCREMENT 10  <span class="comment">// 线性表存储空间的分配增量</span></span></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> &#123;</div><div class="line">    ElemType *elem; <span class="comment">// 数据元素的地址</span></div><div class="line">    <span class="keyword">int</span>   length; <span class="comment">// 当前长度</span></div><div class="line">    <span class="keyword">int</span>   listsize;<span class="comment">//当前分配的存储容量(以sizeof(ElemType)为单位)</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>线性表顺序表示操作实例代码</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div></pre></td><td class="code"><pre><div class="line">/***</div><div class="line"> *Arrlist.h</div><div class="line"> *Purpose:</div><div class="line"> *   线性表顺序存储结构的创建、数据插入、数据获取、获取长度、删除数据、清空数据、销毁顺序存储结构方法的实现</div><div class="line"> ***/</div><div class="line">#include &lt;stdio.h&gt;</div><div class="line">#include &lt;stdlib.h&gt;</div><div class="line">#include "string.h"</div><div class="line"></div><div class="line">#define LIST_INIT_SIZE 100 // 线性表存储空间的初始分配量</div><div class="line">#define LISTINCREMENT 10   // 线性表存储空间的分配增量</div><div class="line"></div><div class="line">// 函数结果状态代码</div><div class="line">#define TRUE 1</div><div class="line">#define FALSE 0</div><div class="line">#define OK  1</div><div class="line">#define ERROR 0</div><div class="line">#define INFEASIBLE -1</div><div class="line">#define OVERLOW -2</div><div class="line"></div><div class="line">// Status 是函数的类型, 其值是函数结果状态代码</div><div class="line">typedef int Status;</div><div class="line">typedef int ElemType;</div><div class="line"></div><div class="line">// -----线性表的动态分配顺序存储结构-----</div><div class="line">typedef struct</div><div class="line">&#123;</div><div class="line">    ElemType * elem; // 存储空间基址</div><div class="line">    int length;      // 当前长度</div><div class="line">    int listsize;    // 当前分配的存储容量(以sizeof(ElemType)为单位)</div><div class="line">&#125;SqList;</div><div class="line"></div><div class="line">// 操作结果：构造一个空的线性表L</div><div class="line">Status InitList(SqList *L)&#123;</div><div class="line">    // 为结构体中的存储空间分配内存</div><div class="line">    L-&gt;elem = (ElemType *)malloc(LIST_INIT_SIZE * sizeof(ElemType));</div><div class="line">    if(! L-&gt;elem) exit(OVERLOW); // 存储分配失败</div><div class="line"></div><div class="line">    L-&gt;length = 0; // 空表长度为0</div><div class="line">    L-&gt;listsize = LIST_INIT_SIZE; // 初始存储容量</div><div class="line">    return OK;</div><div class="line">&#125;// InitList_sq</div><div class="line"></div><div class="line">// 初始条件：线性表L已存在</div><div class="line">// 操作结果：销毁线性表L</div><div class="line">Status DestroyList(SqList *L)&#123;</div><div class="line">    // 判断指针是否为空</div><div class="line">    if (L == NULL) &#123;</div><div class="line">        return ERROR;</div><div class="line">    &#125;</div><div class="line">    // 释放calloc, malloc, realloc动态分配的空间</div><div class="line">    free(L-&gt;elem);</div><div class="line">    L-&gt;elem = NULL;</div><div class="line">    L-&gt;length = 0;</div><div class="line">    L-&gt;listsize = 0;</div><div class="line">    return OK;</div><div class="line">&#125;// DestroyList</div><div class="line"></div><div class="line">// 初始条件：线性表L已存在</div><div class="line">// 操作结果：将L重置为空表。</div><div class="line">Status ClearList(SqList *L)&#123;</div><div class="line">    // 判断指针是否为空</div><div class="line">    if (L == NULL) &#123;</div><div class="line">        return ERROR;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    L-&gt;length = 0;</div><div class="line">    return OK;</div><div class="line">&#125;// ClearList</div><div class="line"></div><div class="line">// 初始条件：线性表L已存在</div><div class="line">// 操作结果：若L为空表，则返回TRUE,否则返回FALSE</div><div class="line">Status ListEmpty(SqList L)&#123;</div><div class="line">    if (L.length == 0)</div><div class="line">        return TRUE;</div><div class="line">    else</div><div class="line">        return FALSE;</div><div class="line">&#125;// ListEmpty</div><div class="line"></div><div class="line">// 初始条件：线性表L已存在</div><div class="line">// 操作结果：返回L中数据元素个数</div><div class="line">Status ListLength(SqList L)&#123;</div><div class="line">    return L.length;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 初始条件：线性表L已存在, 1&lt;=i&lt;=ListLength(L)</div><div class="line">// 操作结果：用e返回L中第i个数据元素的值</div><div class="line">Status GetElem(SqList L, int i, ElemType *e)&#123;</div><div class="line">    if (i&lt;1 || i&gt;L.length)</div><div class="line">        exit(ERROR);</div><div class="line">    *e =* (L.elem+i-1);</div><div class="line">    return OK;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 初始条件：线性表L已存在，compare()是数据元素判定函数(满足为1,否则为0)。</div><div class="line">// 操作结果：返回L中第1个与e满足关系compare()的数据元素的位序。若这样的数据元素不存在，则返回值为0.</div><div class="line">Status LocateElem(SqList L, ElemType e, Status(*compare)(ElemType,ElemType))&#123;</div><div class="line">    ElemType *p;</div><div class="line">    int i = 1; // i的初值为第一个元素的位序</div><div class="line">    p = L.elem; // p的初值为第一个元素的存储位置</div><div class="line">    while (i &lt;= L.length &amp;&amp; !compare(*p++,e)) &#123;</div><div class="line">        ++i;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    if (i&lt;=L.length)</div><div class="line">        return i;</div><div class="line">    else</div><div class="line">        return ERROR;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">// 初始条件：线性表L已存在</div><div class="line">// 操作结果：若cur_e是L的数据元素，且不是第一个，则用pre_e返回它的前驱，否则操作失败，pre_e无定义</div><div class="line">Status PriorElem(SqList L, ElemType cur_e, ElemType *pre_e)&#123;</div><div class="line">    int i = 2;</div><div class="line">    ElemType *p = L.elem + 1;</div><div class="line">    while (i &lt;= L.length &amp;&amp; *p!=cur_e) &#123;</div><div class="line">        p++;</div><div class="line">        i++;</div><div class="line">    &#125;</div><div class="line">    if (i&gt;L.length)</div><div class="line">        return INFEASIBLE;</div><div class="line">    else&#123;</div><div class="line">        *pre_e = *--p;</div><div class="line">        return OK;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 初始条件：线性表L已存在</div><div class="line">// 操作结果：若cur_e是L的数据元素，且不是最后一个，则用next_e返回它的后续，否则操作失败,next_e无定义</div><div class="line">Status NextElem(SqList L, ElemType cur_e, ElemType *next_e)&#123;</div><div class="line">    int i = 1;</div><div class="line">    ElemType *p = L.elem;</div><div class="line">    while (i &lt; L.length &amp;&amp; *p!=cur_e) &#123;</div><div class="line">        i ++;</div><div class="line">        p ++;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    if (i == L.length)</div><div class="line">        return INFEASIBLE;</div><div class="line">    else&#123;</div><div class="line">        *next_e = *++p;</div><div class="line">        return OK;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 初始条件：线性表L已存在,1&lt;=i&lt;=ListLength(L)+1</div><div class="line">// 操作结果：在L中第i个位置之前插入新的数据元素e,L的长度加1</div><div class="line">Status ListInsert(SqList *L, int i, ElemType e)&#123;</div><div class="line">    ElemType *newbase,*q,*p;</div><div class="line">    if(i&lt;1 || i&gt;L-&gt;length+1)</div><div class="line">        return ERROR; // i值不合法</div><div class="line">    if(L-&gt;length&gt;=L-&gt;listsize) // 当前存储空间已满,增加分配</div><div class="line">    &#123;</div><div class="line">        newbase = (ElemType *)realloc(L-&gt;elem,(L-&gt;listsize + LISTINCREMENT) * sizeof(ElemType));</div><div class="line">        if(!newbase) exit(OVERLOW); // 存储分配失败</div><div class="line">        L-&gt;elem = newbase; // 新基址</div><div class="line">        L-&gt;listsize += LISTINCREMENT; // 增加存储容量</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    q=L-&gt;elem+i-1; /* q为插入位置 */</div><div class="line">    for(p=L-&gt;elem+L-&gt;length-1;p&gt;=q;--p) /* 插入位置及之后的元素右移 */</div><div class="line">        *(p+1)=*p;</div><div class="line">    *q=e; /* 插入e */</div><div class="line">    ++L-&gt;length; /* 表长增1 */</div><div class="line">    return OK;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">// 初始条件：线性表L已存在且非空，1,=i&lt;=ListLength(L)</div><div class="line">// 操作结果：删除L的第i个数据元素，并用e返回其值,L的长度-1</div><div class="line">Status ListDelete(SqList *L, int i, ElemType *e)&#123;</div><div class="line">    ElemType *p, *q;</div><div class="line"></div><div class="line">    if (i&lt;1 || i&gt;L-&gt;length)</div><div class="line">        return ERROR; // i值不合法</div><div class="line">    p = L-&gt;elem+i-1; // p为被删除元素的位置</div><div class="line">    *e = *p; // 被删除元素的值赋给e</div><div class="line">    q = L-&gt;elem + L-&gt;length - 1; // 表尾元素的位置</div><div class="line"></div><div class="line">    for (++p; p&lt;=q; ++p) &#123; // 被删除元素之后的元素左移</div><div class="line">        *(p-1) = *p;</div><div class="line">        L-&gt;length--; // 表长-1</div><div class="line">    &#125;</div><div class="line">    return OK;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 初始条件：线性表L已存在</div><div class="line">// 操作结果：依次对L的每个数据元素调用函数vi()。一旦vi()失败，则操作失败</div><div class="line">Status ListTraverse(SqList L, void(*vi)(ElemType*))&#123;</div><div class="line">    ElemType *p;</div><div class="line">    int i;</div><div class="line">    p = L.elem;</div><div class="line">    for (i=1; i&lt;=L.length; i++) &#123;</div><div class="line">        vi(p++);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    printf("\n");</div><div class="line">    return OK;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>测试代码</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//  main.c</span></div><div class="line"><span class="comment">//  arrlist</span></div><div class="line"><span class="comment">//</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"Arrlist.h"</span></span></div><div class="line"></div><div class="line"><span class="comment">// 判断是否相等的函数，Union()用到</span></div><div class="line"><span class="function">Status <span class="title">equal</span><span class="params">(ElemType c1,ElemType c2)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>(c1==c2)</div><div class="line">        <span class="keyword">return</span> TRUE;</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="keyword">return</span> FALSE;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 将所有在线性表Lb中但不在La中的数据元素插入到La中</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Union</span><span class="params">(SqList *La,SqList Lb)</span></span></div><div class="line">&#123;</div><div class="line">    ElemType e;</div><div class="line">    <span class="keyword">int</span> La_len,Lb_len;</div><div class="line">    <span class="keyword">int</span> i;</div><div class="line">    La_len=ListLength(*La); <span class="comment">// 求线性表的长度</span></div><div class="line">    Lb_len=ListLength(Lb);</div><div class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=Lb_len;i++)</div><div class="line">    &#123;</div><div class="line">        GetElem(Lb,i,&amp;e); <span class="comment">// 取Lb中第i个数据元素赋给e</span></div><div class="line">        <span class="keyword">if</span>(!LocateElem(*La,e,equal)) <span class="comment">// La中不存在和e相同的元素,则插入之</span></div><div class="line">        &#123;</div><div class="line">           ListInsert(La,++La_len,e);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(ElemType *c)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d "</span>,*c);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</span> </span>&#123;</div><div class="line">    <span class="comment">// insert code here...</span></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"Testing start!\n"</span>);</div><div class="line">    SqList La,Lb;</div><div class="line">    ElemType t1,t2,t3;</div><div class="line">    t1 = <span class="number">10</span>;</div><div class="line">    t2 = <span class="number">20</span>;</div><div class="line">    t3 = <span class="number">30</span>;</div><div class="line">    <span class="keyword">int</span> t1_length,t2_length,t3_length, i;</div><div class="line"></div><div class="line">    <span class="comment">// 构造一个空的线性表La</span></div><div class="line">    InitList(&amp;La);</div><div class="line">    <span class="comment">// 插入数据元素t1</span></div><div class="line">    ListInsert(&amp;La, <span class="number">1</span>, t1);</div><div class="line">    <span class="comment">// 获取线性表长度</span></div><div class="line">    t1_length = ListLength(La);</div><div class="line">    <span class="comment">// 插入数据元素t2</span></div><div class="line">    ListInsert(&amp;La, <span class="number">2</span>, t2);</div><div class="line">    t2_length = ListLength(La);</div><div class="line">    <span class="comment">// 插入数据元素t3</span></div><div class="line">    ListInsert(&amp;La, <span class="number">3</span>, t3);</div><div class="line">    t3_length = ListLength(La);</div><div class="line">    <span class="comment">// 输出每次插入新元素后 表L的长度变化</span></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"t1_length=%d,t2_length=%d,t3_length=%d\n"</span>,t1_length,t2_length,t3_length);</div><div class="line"></div><div class="line">    <span class="comment">// 输出表La的内容</span></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"La= "</span>);</div><div class="line">    ListTraverse(La,print);</div><div class="line"></div><div class="line">    <span class="comment">// 在表Lb中插入5个元素</span></div><div class="line">    InitList(&amp;Lb);</div><div class="line">    <span class="keyword">for</span> (i=<span class="number">1</span>; i&lt;=<span class="number">5</span>; i++) &#123;</div><div class="line">        ListInsert(&amp;Lb, i, <span class="number">2</span> * i);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 输出表Lb的内容</span></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"Lb= "</span>);</div><div class="line">    ListTraverse(Lb, print);</div><div class="line">    <span class="comment">// 输出表Lb长度</span></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"Lb length = %d\n"</span>,ListLength(Lb));</div><div class="line"></div><div class="line">    <span class="comment">// La U Lb</span></div><div class="line">    Union(&amp;La, Lb);</div><div class="line"></div><div class="line">    <span class="comment">//输出新表L的内容</span></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"new La= "</span>);</div><div class="line">    ListTraverse(La,print);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"end!!!\n"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>运行结果，如下图所示：</p>
+</li>
+</ol>
+<p><img src="/2017/04/27/线性表/2.png" alt="2"></p>
+<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><h4 id="插入算法的时间性能分析"><a href="#插入算法的时间性能分析" class="headerlink" title="插入算法的时间性能分析"></a>插入算法的时间性能分析</h4><p>顺序表上的插入运算，时间主要消耗在了数据的移动上，在第i个位置上插入x ，从ai 到an 都要向下移动一个位置，共需要移动n－i＋1个元素，而i 的取值范围为：1&lt;= i&lt;= n+1，即有n＋1个位置可以插入。设在第i个位置上作插入的概率为Pi，则平均移动数据元素的次数：</p>
+<p><img src="/2017/04/27/线性表/3.jpg" alt="3"></p>
+<p><strong><em>因此，在顺序表上做插入操作需移动表中一半的数据元素。显然时间复杂度为Ｏ(n)。</em></strong></p>
+<h4 id="删除算法的时间性能分析"><a href="#删除算法的时间性能分析" class="headerlink" title="删除算法的时间性能分析"></a>删除算法的时间性能分析</h4><p>与插入运算相同，其时间主要消耗在了移动表中元素上，删除第i个元素时，其后面的元素ai+1～an 都要向上移动一个位置，共移动了n-i 个元素，所以平均移动数据元素的次数：</p>
+<p><img src="/2017/04/27/线性表/4.jpg" alt="4"></p>
+<p><strong><em>因此，顺序表上作删除运算时大约需要移动表中一半的元素，显然该算法的时间复杂度为Ｏ(n)。</em></strong></p>
+<blockquote class="blockquote-center"><p>结语</p>
+</blockquote>
+<p>接下来，我将继续学习线性表的链式表示和实现</p>
+<p>最近访客</p>
+<div class="ds-recent-visitors" data-num-items="39" data-avatar-size="40" id="ds-recent-visitors"></div>
+
+
+
+      
+    </div>
+
+    <div align="center">
+      
+        <div class="copyright">
+        <p><span>
+        <b>本文地址：</b><a href="/2017/04/27/线性表/" title="线性表">https://tonynyl.github.io/2017/04/27/线性表/</a><br/><b>转载请注明出处，谢谢！</b>
+        </span></p>
+        </div>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay-reward-image.jpg" alt="TonyNYL Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/25/数据结构之绪论/" rel="next" title="数据结构之绪论">
+                <i class="fa fa-chevron-left"></i> 数据结构之绪论
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/19/Thymeleaf-layout-布局/" rel="prev" title="Thymeleaf layout 布局">
+                Thymeleaf layout 布局 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="TonyNYL" />
+          <p class="site-author-name" itemprop="name">TonyNYL</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/TonyNYL" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://douban.com/" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  豆瓣
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-link"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://tonynyl.github.io/yuanlong/" title="主页" target="_blank">主页</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是线性表？"><span class="nav-number">1.</span> <span class="nav-text">什么是线性表？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#线性结构的特点为"><span class="nav-number">1.1.</span> <span class="nav-text">线性结构的特点为</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线性表的类型定义"><span class="nav-number">2.</span> <span class="nav-text">线性表的类型定义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#介绍"><span class="nav-number">2.1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#抽象数据类型线性表的定义"><span class="nav-number">2.2.</span> <span class="nav-text">抽象数据类型线性表的定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#合并线性表LA和LB"><span class="nav-number">2.3.</span> <span class="nav-text">合并线性表LA和LB</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#合并LA和LB为新的线性表LC"><span class="nav-number">2.4.</span> <span class="nav-text">合并LA和LB为新的线性表LC</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线性表的顺序表示和实现"><span class="nav-number">3.</span> <span class="nav-text">线性表的顺序表示和实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#线性表的顺序存储"><span class="nav-number">3.1.</span> <span class="nav-text">线性表的顺序存储</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#线性表的顺序表示与实现代码"><span class="nav-number">3.2.</span> <span class="nav-text">线性表的顺序表示与实现代码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间复杂度"><span class="nav-number">4.</span> <span class="nav-text">时间复杂度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#插入算法的时间性能分析"><span class="nav-number">4.1.</span> <span class="nav-text">插入算法的时间性能分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除算法的时间性能分析"><span class="nav-number">4.2.</span> <span class="nav-text">删除算法的时间性能分析</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="heart">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TonyNYL</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+<!-- 新增访客统计代码 -->
+
+<div class="busuanzi-count">
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      访问用户： <span class="busuanzi-value" id="busuanzi_value_site_uv"></span> 人
+    </span>
+    <div class="powered-by"></div>
+    <span class="site-uv">
+      <i class="fa fa-eye"></i>
+      访问次数： <span class="busuanzi-value" id="busuanzi_value_site_pv"></span> 次
+    </span>
+    <div class="powered-by"></div>
+    <!-- 博客字数统计 -->
+    <span class="site-pv">
+      <i class="fa fa-pencil"></i>
+      博客全站共： <span class="post-count">22.5k</span> 字
+    </span>
+</div>
+<!-- 新增访客统计代码 END-->
+
+
+<!-- 在网页底部添加网站运行时间 -->
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("03/31/2017 00:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "Run for "+dnum+" Days ";
+        document.getElementById("times").innerHTML = hnum + " Hours " + mnum + " m " + snum + " s";
+    }
+setInterval("createtime()",250);
+</script>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+
+  
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+<script type="text/javascript" src="/js/src/photoswipe.min.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/photoswipe-ui-default.min.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+</body>
+</html>
