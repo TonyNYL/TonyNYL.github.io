@@ -80,7 +80,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="机器学习,深度学习,">
 
 
 
@@ -98,17 +98,23 @@
 
 
 
-<meta name="description" content="IEC创新创业中心">
-<meta property="og:type" content="website">
-<meta property="og:title" content="TonyNYL">
-<meta property="og:url" content="https://tonynyl.github.io/tags/index.html">
+<meta name="description" content="简介  接下来，将对精确率和召回率，这两个概念进行解析。 定义辨析&amp;emsp;&amp;emsp;实际上非常简单，精确率是针对我们预测结果而言的，它表示的是预测为正的样本中有多少是真正的正样本。那么预测为正就有两种可能了，一种就是把正类预测为正类(TP)，另一种就是把负类预测为正类(FP)，也就是">
+<meta name="keywords" content="机器学习,深度学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="精确率和召回率">
+<meta property="og:url" content="https://tonynyl.github.io/2020/04/12/精确率和召回率/index.html">
 <meta property="og:site_name" content="TonyNYL">
-<meta property="og:description" content="IEC创新创业中心">
+<meta property="og:description" content="简介  接下来，将对精确率和召回率，这两个概念进行解析。 定义辨析&amp;emsp;&amp;emsp;实际上非常简单，精确率是针对我们预测结果而言的，它表示的是预测为正的样本中有多少是真正的正样本。那么预测为正就有两种可能了，一种就是把正类预测为正类(TP)，另一种就是把负类预测为正类(FP)，也就是">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-03-31T12:15:17.459Z">
+<meta property="og:image" content="https://tonynyl.github.io/2020/04/12/精确率和召回率/1.jpg">
+<meta property="og:image" content="https://tonynyl.github.io/2020/04/12/精确率和召回率/2.jpg">
+<meta property="og:image" content="https://tonynyl.github.io/2020/04/12/精确率和召回率/3.jpg">
+<meta property="og:image" content="https://tonynyl.github.io/2020/04/12/精确率和召回率/4.png">
+<meta property="og:updated_time" content="2020-04-12T09:49:03.435Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TonyNYL">
-<meta name="twitter:description" content="IEC创新创业中心">
+<meta name="twitter:title" content="精确率和召回率">
+<meta name="twitter:description" content="简介  接下来，将对精确率和召回率，这两个概念进行解析。 定义辨析&amp;emsp;&amp;emsp;实际上非常简单，精确率是针对我们预测结果而言的，它表示的是预测为正的样本中有多少是真正的正样本。那么预测为正就有两种可能了，一种就是把正类预测为正类(TP)，另一种就是把负类预测为正类(FP)，也就是">
+<meta name="twitter:image" content="https://tonynyl.github.io/2020/04/12/精确率和召回率/1.jpg">
 
 
 
@@ -136,19 +142,13 @@
 
 
 
-  <link rel="canonical" href="https://tonynyl.github.io/tags/">
+  <link rel="canonical" href="https://tonynyl.github.io/2020/04/12/精确率和召回率/">
 
 
 
 
 
-  <title>
-  
-
-  
-    标签 | TonyNYL
-  
-</title>
+  <title> 精确率和召回率 | TonyNYL </title>
 
   <style>
     .forkme{
@@ -187,7 +187,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
   <a href="https://github.com/TonyNYL" class="forkme"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a>
@@ -336,25 +336,247 @@
             
 
   <div id="posts" class="posts-expand">
-  <header class="post-header">
+    
 
-	<h2 class="post-title" itemprop="name headline"></h2>
+  
 
+  
+  
+  
 
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://tonynyl.github.io/2020/04/12/精确率和召回率/">
 
-</header>
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TonyNYL">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TonyNYL">
+    </span>
 
     
-    
-      <div class="tag-cloud">
-        <div class="tag-cloud-title">
-            目前共计 7 个标签
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                精确率和召回率
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-12T17:08:02+08:00">
+                2020-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习-深度学习-大数据/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习/深度学习/大数据</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+
+          
+
         </div>
-        <div class="tag-cloud-tags">
-          <a href="/tags/JAVA/" style="font-size: 12px; color: #ccc">JAVA</a> <a href="/tags/Spring-Boot中Thymeleaf布局/" style="font-size: 12px; color: #ccc">Spring Boot中Thymeleaf布局</a> <a href="/tags/github部署前端页面/" style="font-size: 12px; color: #ccc">github部署前端页面</a> <a href="/tags/思科模拟器（Cisco-Packet-Tracer）/" style="font-size: 12px; color: #ccc">思科模拟器（Cisco Packet Tracer）</a> <a href="/tags/数据结构/" style="font-size: 30px; color: #111">数据结构</a> <a href="/tags/机器学习/" style="font-size: 12px; color: #ccc">机器学习</a> <a href="/tags/深度学习/" style="font-size: 12px; color: #ccc">深度学习</a>
-        </div>
-      </div>
+      </header>
     
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"><p>简介</p>
+</blockquote>
+<p>接下来，将对精确率和召回率，这两个概念进行解析。</p>
+<h3 id="定义辨析"><a href="#定义辨析" class="headerlink" title="定义辨析"></a>定义辨析</h3><p>&emsp;&emsp;实际上非常简单，<strong>精确率</strong>是针对我们预测结果而言的，它表示的是预测为正的样本中有多少是真正的正样本。那么预测为正就有两种可能了，一种就是把正类预测为正类(TP)，另一种就是把负类预测为正类(FP)，也就是<br><a id="more"></a><br><img src="/2020/04/12/精确率和召回率/1.jpg" alt="1"><br>&emsp;&emsp;而<strong>召回率</strong>是针对我们原来的样本而言的，它表示的是样本中的正例有多少被预测正确了。那也有两种可能，一种是把原来的正类预测成正类(TP)，另一种就是把原来的正类预测为负类(FN)。<br><img src="/2020/04/12/精确率和召回率/2.jpg" alt="2"><br>其实就是分母不同，一个分母是预测为正的样本数，另一个是原来样本中所有的正样本数。<br><img src="/2020/04/12/精确率和召回率/3.jpg" alt="3"><br><img src="/2020/04/12/精确率和召回率/4.png" alt="4"><br>在信息检索领域，精确率和召回率又被称为查准率和查全率，<br>查准率＝检索出的相关信息量 / 检索出的信息总量<br>查全率＝检索出的相关信息量 / 系统中的相关信息总量</p>
+<h3 id="小例子"><a href="#小例子" class="headerlink" title="小例子"></a>小例子</h3><p>&emsp;&emsp;假设我们手上有60个正样本，40个负样本，我们要找出所有的正样本，系统查找出50个，其中只有40个是真正的正样本，计算上述各指标。</p>
+<ul>
+<li>TP: 将正类预测为正类数 40</li>
+<li>FN: 将正类预测为负类数 20</li>
+<li>FP: 将负类预测为正类数 10</li>
+<li>TN: 将负类预测为负类数 30</li>
+</ul>
+<p>准确率(accuracy) = 预测对的/所有 = (TP+TN)/(TP+FN+FP+TN) = 70%</p>
+<p>精确率(precision) = TP/(TP+FP) = 80%</p>
+<p>召回率(recall) = TP/(TP+FN) = 2/3</p>
+<hr>
+
+      
+    </div>
+
+    <div align="center">
+      
+        <div class="copyright">
+        <p><span>
+        <b>本文地址：</b><a href="/2020/04/12/精确率和召回率/" title="精确率和召回率">https://tonynyl.github.io/2020/04/12/精确率和召回率/</a><br><b>转载请注明出处，谢谢！</b>
+        </span></p>
+        </div>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay-reward-image.jpg" alt="TonyNYL Alipay">
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/07/衡量Facebook对研究反应的多样性/" rel="next" title="衡量Facebook对研究反应的多样性">
+                <i class="fa fa-chevron-left"></i> 衡量Facebook对研究反应的多样性
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
   </div>
 
 
@@ -363,6 +585,44 @@
 
 
           
+  <div class="comments" id="comments">
+    
+                  <div onclick="showGitment()" id="gitment_title" class="gitment_title">显示 Gitment 评论</div>
+                  <div id="container" style="display:none"></div>
+                  <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+                  <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+                  <script>
+                  const myTheme = {
+                    render(state, instance) {
+                      const container = document.createElement('div');
+                      container.lang = "en-US";
+                      container.className = 'gitment-container gitment-root-container';
+                      container.appendChild(instance.renderHeader(state, instance));
+                      container.appendChild(instance.renderEditor(state, instance));
+                      container.appendChild(instance.renderComments(state, instance));
+                      container.appendChild(instance.renderFooter(state, instance));
+                      return container;
+                    }
+                  }
+                  function showGitment() {
+                    $("#gitment_title").attr("style", "display:none");
+                    $("#container").attr("style", "").addClass("gitment_container");
+                    var gitment = new Gitment({
+                      id: window.location.pathname,
+                      theme: myTheme,
+                      owner: 'TonyNYL',
+                      repo: 'TonyNYL.github.io',
+                      oauth: {
+                        client_id: '88bb41cf560e8dffb12a',
+                        client_secret: '6bcdbea43588fb2e14ef07a4e3508a22bed255e1'
+                      }
+                    });
+                    gitment.render('container');
+                  }
+                  </script>
+    
+  </div>
+
 
         </div>
         
@@ -382,8 +642,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="TonyNYL">
           <p class="site-author-name" itemprop="name">TonyNYL</p>
@@ -517,6 +786,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义辨析"><span class="nav-number">1.</span> <span class="nav-text">定义辨析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#小例子"><span class="nav-number">2.</span> <span class="nav-text">小例子</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -695,6 +980,13 @@ setInterval("createtime()",250);
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+<script type="text/javascript" src="/js/src/photoswipe.min.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/photoswipe-ui-default.min.js?v=5.1.0"></script>
+
+
 
   
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>TonyNYL</title>
-  <subtitle>宁原隆个人博客</subtitle>
+  <subtitle>LongYuan个人博客</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tonynyl.github.io/"/>
-  <updated>2020-04-08T07:49:40.052Z</updated>
+  <updated>2020-04-12T09:49:03.435Z</updated>
   <id>https://tonynyl.github.io/</id>
   
   <author>
@@ -16,11 +16,53 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>精确率和召回率</title>
+    <link href="https://tonynyl.github.io/2020/04/12/%E7%B2%BE%E7%A1%AE%E7%8E%87%E5%92%8C%E5%8F%AC%E5%9B%9E%E7%8E%87/"/>
+    <id>https://tonynyl.github.io/2020/04/12/精确率和召回率/</id>
+    <published>2020-04-12T09:08:02.000Z</published>
+    <updated>2020-04-12T09:49:03.435Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>简介</p>
+</blockquote>
+<p>接下来，将对精确率和召回率，这两个概念进行解析。</p>
+<h3 id="定义辨析"><a href="#定义辨析" class="headerlink" title="定义辨析"></a>定义辨析</h3><p>&emsp;&emsp;实际上非常简单，<strong>精确率</strong>是针对我们预测结果而言的，它表示的是预测为正的样本中有多少是真正的正样本。那么预测为正就有两种可能了，一种就是把正类预测为正类(TP)，另一种就是把负类预测为正类(FP)，也就是<br><a id="more"></a><br><img src="/2020/04/12/精确率和召回率/1.jpg" alt="1"><br>&emsp;&emsp;而<strong>召回率</strong>是针对我们原来的样本而言的，它表示的是样本中的正例有多少被预测正确了。那也有两种可能，一种是把原来的正类预测成正类(TP)，另一种就是把原来的正类预测为负类(FN)。<br><img src="/2020/04/12/精确率和召回率/2.jpg" alt="2"><br>其实就是分母不同，一个分母是预测为正的样本数，另一个是原来样本中所有的正样本数。<br><img src="/2020/04/12/精确率和召回率/3.jpg" alt="3"><br><img src="/2020/04/12/精确率和召回率/4.png" alt="4"><br>在信息检索领域，精确率和召回率又被称为查准率和查全率，<br>查准率＝检索出的相关信息量 / 检索出的信息总量<br>查全率＝检索出的相关信息量 / 系统中的相关信息总量</p>
+<h3 id="小例子"><a href="#小例子" class="headerlink" title="小例子"></a>小例子</h3><p>&emsp;&emsp;假设我们手上有60个正样本，40个负样本，我们要找出所有的正样本，系统查找出50个，其中只有40个是真正的正样本，计算上述各指标。</p>
+<ul>
+<li>TP: 将正类预测为正类数 40</li>
+<li>FN: 将正类预测为负类数 20</li>
+<li>FP: 将负类预测为正类数 10</li>
+<li>TN: 将负类预测为负类数 30</li>
+</ul>
+<p>准确率(accuracy) = 预测对的/所有 = (TP+TN)/(TP+FN+FP+TN) = 70%</p>
+<p>精确率(precision) = TP/(TP+FP) = 80%</p>
+<p>召回率(recall) = TP/(TP+FN) = 2/3</p>
+<hr>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;简介&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;接下来，将对精确率和召回率，这两个概念进行解析。&lt;/p&gt;
+&lt;h3 id=&quot;定义辨析&quot;&gt;&lt;a href=&quot;#定义辨析&quot; class=&quot;headerlink&quot; title=&quot;定义辨析&quot;&gt;&lt;/a&gt;定义辨析&lt;/h3&gt;&lt;p&gt;&amp;emsp;&amp;emsp;实际上非常简单，&lt;strong&gt;精确率&lt;/strong&gt;是针对我们预测结果而言的，它表示的是预测为正的样本中有多少是真正的正样本。那么预测为正就有两种可能了，一种就是把正类预测为正类(TP)，另一种就是把负类预测为正类(FP)，也就是&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="机器学习/深度学习/大数据" scheme="https://tonynyl.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    
+      <category term="机器学习" scheme="https://tonynyl.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="深度学习" scheme="https://tonynyl.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>衡量Facebook对研究反应的多样性</title>
     <link href="https://tonynyl.github.io/2020/04/07/%E8%A1%A1%E9%87%8FFacebook%E5%AF%B9%E7%A0%94%E7%A9%B6%E5%8F%8D%E5%BA%94%E7%9A%84%E5%A4%9A%E6%A0%B7%E6%80%A7/"/>
     <id>https://tonynyl.github.io/2020/04/07/衡量Facebook对研究反应的多样性/</id>
     <published>2020-04-07T13:21:31.000Z</published>
-    <updated>2020-04-08T07:49:40.052Z</updated>
+    <updated>2020-04-12T09:46:29.250Z</updated>
     
     <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>论文基本信息</p>
 </blockquote>
@@ -56,6 +98,7 @@
 <h3 id="Conclusion-and-Future-Work"><a href="#Conclusion-and-Future-Work" class="headerlink" title="Conclusion and Future Work"></a>Conclusion and Future Work</h3><p>&emsp;&emsp;在本文中，我们提出了一种基于点击的反应分析的新方法。我们通过分析Facebook对发布在公共页面上的学术文章的反应数据集，改进了这种方法，并将其用于探索用户对科学主题的情绪反应。我们提出了一种根据TF-IDF统计数据转换基于点击反应的分析方法。我们借鉴了行为心理学的概念，开发了一些度量方法，用这些转换后的特征来衡量用户的总体行为。最后，我们使用LDA主题建模和统计测试来发现科学主题令人惊讶的情绪反应。<br>&emsp;&emsp;寻找情绪多样性或强烈强度的实例有助于理解社区动态。冲突和分裂可能是群体分裂的断层线，找到识别它们的方法并在必要时进行干预可以提高成员的凝聚力。这些划分也使我们能够意识到许多在线平台上存在的多样性。根据本文的贡献，我们计划使用社会网络分析来更好地了解情绪是如何在科学界传播的。我们将调查情绪如何影响网上虚假信息和虚假信息的散布，以及它们在向非专家有效传达调查结果方面所扮演的角色。探索这些及其他相关问题最终将导致更好的研究结果，并将增进我们对情绪在塑造科学家和公众之间的交流中所产生影响的理解。</p>
 <h3 id="Acknowledgments"><a href="#Acknowledgments" class="headerlink" title="Acknowledgments"></a>Acknowledgments</h3><p>This work was partially supported by Argonne National Laboratory under grant number G2A62716.</p>
 <h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><p>略！</p>
+<hr>
 ]]></content>
     
     <summary type="html">
