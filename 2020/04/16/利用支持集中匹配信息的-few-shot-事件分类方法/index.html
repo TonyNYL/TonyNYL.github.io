@@ -1,0 +1,1208 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="google-site-verification" content="true">
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="true">
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="TonyNYL" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/25101221?v=3&u=1460cf6aa7c8d57b73bf3d142b3ca5398211b2da&s=400?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="论文基本信息  论文标题：Exploiting the Matching Information in the Support Set for Few Shot Event Classification论文作者：Viet Dac Lai, Franck Dernoncourt, and Thien Huu Nguyen1论文出处：PAKDD2020论文原文地址：https://arxiv.xile">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用支持集中匹配信息的 few shot 事件分类方法">
+<meta property="og:url" content="https://tonynyl.github.io/2020/04/16/利用支持集中匹配信息的-few-shot-事件分类方法/index.html">
+<meta property="og:site_name" content="TonyNYL">
+<meta property="og:description" content="论文基本信息  论文标题：Exploiting the Matching Information in the Support Set for Few Shot Event Classification论文作者：Viet Dac Lai, Franck Dernoncourt, and Thien Huu Nguyen1论文出处：PAKDD2020论文原文地址：https://arxiv.xile">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://tonynyl.github.io/2020/04/16/利用支持集中匹配信息的-few-shot-事件分类方法/1.png">
+<meta property="og:image" content="https://tonynyl.github.io/2020/04/16/利用支持集中匹配信息的-few-shot-事件分类方法/2.png">
+<meta property="og:image" content="https://tonynyl.github.io/2020/04/16/利用支持集中匹配信息的-few-shot-事件分类方法/3.png">
+<meta property="og:image" content="https://tonynyl.github.io/2020/04/16/利用支持集中匹配信息的-few-shot-事件分类方法/4.png">
+<meta property="og:image" content="https://tonynyl.github.io/2020/04/16/利用支持集中匹配信息的-few-shot-事件分类方法/5.png">
+<meta property="og:image" content="https://tonynyl.github.io/2020/04/16/利用支持集中匹配信息的-few-shot-事件分类方法/6.png">
+<meta property="og:image" content="https://tonynyl.github.io/2020/04/16/利用支持集中匹配信息的-few-shot-事件分类方法/7.png">
+<meta property="og:image" content="https://tonynyl.github.io/2020/04/16/利用支持集中匹配信息的-few-shot-事件分类方法/8.png">
+<meta property="og:image" content="https://tonynyl.github.io/2020/04/16/利用支持集中匹配信息的-few-shot-事件分类方法/9.png">
+<meta property="og:image" content="https://tonynyl.github.io/2020/04/16/利用支持集中匹配信息的-few-shot-事件分类方法/10.png">
+<meta property="og:image" content="https://tonynyl.github.io/2020/04/16/利用支持集中匹配信息的-few-shot-事件分类方法/11.png">
+<meta property="og:updated_time" content="2020-04-16T09:02:11.527Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="利用支持集中匹配信息的 few shot 事件分类方法">
+<meta name="twitter:description" content="论文基本信息  论文标题：Exploiting the Matching Information in the Support Set for Few Shot Event Classification论文作者：Viet Dac Lai, Franck Dernoncourt, and Thien Huu Nguyen1论文出处：PAKDD2020论文原文地址：https://arxiv.xile">
+<meta name="twitter:image" content="https://tonynyl.github.io/2020/04/16/利用支持集中匹配信息的-few-shot-事件分类方法/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://tonynyl.github.io/2020/04/16/利用支持集中匹配信息的-few-shot-事件分类方法/">
+
+
+
+
+
+  <title> 利用支持集中匹配信息的 few shot 事件分类方法 | TonyNYL </title>
+
+  <style>
+    .forkme{
+   display: none;
+   }
+    @media (min-width: 768px) {
+   .forkme{
+   display: inline;
+   }
+    }
+    </style>
+  <script src="/js/src/photoswipe.min.js?v=5.1.0"></script>
+  <script src="/js/src/photoswipe-ui-default.min.js?v=5.1.0"></script>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+  <a href="https://github.com/TonyNYL" class="forkme"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">TonyNYL</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">LongYuan个人博客</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-photos">
+          <a href="/photos" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-menu-item-icon fa fa-fw fa-camera"></i> <br>
+            
+            相册
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://tonynyl.github.io/2020/04/16/利用支持集中匹配信息的-few-shot-事件分类方法/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TonyNYL">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TonyNYL">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                利用支持集中匹配信息的 few shot 事件分类方法
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-16T13:13:55+08:00">
+                2020-04-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/论文阅读/" itemprop="url" rel="index">
+                    <span itemprop="name">论文阅读</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"><p>论文基本信息</p>
+</blockquote>
+<p>论文标题：Exploiting the Matching Information in the Support Set for Few Shot Event Classification<br>论文作者：Viet Dac Lai, Franck Dernoncourt, and Thien Huu Nguyen1<br>论文出处：PAKDD2020<br>论文原文地址：<a href="https://arxiv.xilesou.top/pdf/2002.05295.pdf" target="_blank" rel="noopener">https://arxiv.xilesou.top/pdf/2002.05295.pdf</a></p>
+<a id="more"></a>
+<blockquote class="blockquote-center"><p>论文正文</p>
+</blockquote>
+<p><strong>摘要：</strong>现有的事件分类（EC）工作主要集中在传统的有监督的学习环境中，在这种环境中，模型无法提取新的/不可见的事件类型。在这一领域还没有对few-shot学习进行研究，尽管它使EC模型能够将其操作扩展到未观察到的事件类型。为了填补这一空白，在这项工作中，我们研究了在few-shot学习背景下的事件分类。针对这一问题，我们提出了一种新的训练方法，该方法广泛利用了训练过程中的支持集。特别是，除了将查询示例与用于训练的支持集中的示例进行匹配外，我们还寻求进一步匹配支持集本身中的示例。该方法为模型提供了更多的训练信号，可以应用于各种基于度量学习的few-shot学习方法。我们在两个基准的EC数据集上进行了大量的实验，结果表明所提出的方法可以将所报告的最佳few-shot学习模型的事件分类准确率提高10%。<br><strong>关键词：</strong>事件分类，辅助损失，few-shot学习</p>
+<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>&emsp;&emsp;事件分类(EC)是自然语言处理(NLP)中信息抽取(IE)的一项重要工作。EC的目标是对一些事件类型集（即类）的事件提及(Event mentions)进行分类。事件提及(Event mentions)通常与一些词汇/短语相关，这些词汇/短语负责触发句子中相应的事件。例如，考虑以下两句话:<br>(1)    The companies fire the employee who wrote anti-diversity memo.<br>(2)    The troops were ordered to cease fire.<br>在这些示例中，EC系统应该能够将上述两句话中的“fire”分别归类为雇佣终止事件和攻击事件。通过例子可以看出，EC中一个值得注意的挑战是，单词的相似表面形式可能会根据上下文表达不同的事件。EC采用了两种主要方法。第一种方法探索语言特征(例如，语法和语义属性)来训练统计模型[9]。另一方面，第二种方法侧重于开发深度神经网络模型（例如卷积神经网络（CNN）和递归神经网络（RNN）），以从大规模数据集中自动学习有效特征[5,13]。由于深度学习模型的发展，EC的性能得到了显著的提高[19,17,16,14,23]。<br>&emsp;&emsp;目前的EC模型主要采用传统的监督学习设置[19,17]，其中用于分类的事件类型集合已经被预先确定。然而，一旦使用给定的事件类型集在数据集上对模型进行训练，它就无法检测到不可见事件类型的事件提及(Event mentions)。要将EC扩展到新的事件类型，一种常见的解决方案是为此类新事件类型注释额外的培训数据并重新培训模型，这是非常昂贵的。因此，我们希望在few-shot学习的环境中形式化EC，在这种环境中，系统需要学习从少数例子中识别新事件类型的事件提及(Event mentions)。事实上，这更接近于人类如何学习执行任务，并使EC模型更适用于实践。然而，据我们所知，目前还没有关于few-shot学习的研究。<br>&emsp;&emsp;在few-shot学习中，我们得到了一个支持集和一个查询实例。支持集包含一组类的示例(例如EC中的事件)。学习模型需要在支持集中显示的类中预测查询实例所属的类。这是基于查询示例和支持集中的示例之间的匹配信息完成的。要应用此设置来提取某个新类型的示例，我们只需要收集几个新类型的示例，然后将它们添加到支持集中以形成一个新类。之后，每当我们需要预测一个新示例是否具有新类型时，我们可以将其设置为查询示例并在此设置中执行模型。<br>&emsp;&emsp;实际上，我们经常有一些现有的数据集（用D表示），并带有一些预定义类型的示例。因此，先前关于few-shot学习的工作已经利用这些数据集来模拟前面提到的few-shot学习设置来训练模型[26]。基本上，在培训过程的每个阶段，都会对D中的类型子集进行采样，并为每个类型选择一些示例作为支持集。还从每种抽样类型的其余示例中选择了一些其他示例来建立查询点。然后，将根据示例的上下文匹配对模型进行训练，以将查询示例正确映射到支持集中的相应类型[7]。<br>&emsp;&emsp;此训练过程的一个潜在问题是，模型的训练信号仅来自查询示例和支持集中的示例之间的匹配信息。现有的few-shot学习工作[28,26]，特别是对于NLP任务[7]，还没有探索支持集本身中示例之间的可用匹配信息。虽然这种方法对于计算机视觉中的任务是可以接受的，但是对于NLP应用程序，特别是对于EC，可能就不太合适了。总体而言，NLP中的数据集比计算机视觉中的数据集要小得多，因此限制了用于训练目的的上下文的多样性。对支持集中的示例的匹配信息的不了解可能会导致在EC训练数据的使用中效率低下，因为模型无法充分利用可用信息并且无法获得良好的性能。因此，在这项工作中，我们建议同时利用支持集中的示例之间以及查询示例与支持集中的示例之间的匹配信息，以训练EC的少量学习模型。这是通过在损失函数中添加附加项（即辅助损失）来实现的，以捕获支持集中的示例之间的匹配知识。我们期望这种新的训练技术能更好地利用训练数据，提高EC中few-shot学习的性能。<br>&emsp;&emsp;我们将提出的训练方法广泛应用于不同的度量学习模型，以便在两个基准EC数据集上进行few-shot学习。实验表明，新的训练技术可以在性能差距较大的两个数据集上显著改善所有考虑的few-shot学习方法。总而言之，这项工作的贡献包括: (1)我们在文献中首次研究了事件分类的few-shot学习问题，（2）提出了一种新的基于度量学习的few-shot学习模型训练方法。所提出的训练方法利用支持集中的例子之间的匹配信息作为附加训练信号，（3）我们在few-shot学习环境中获得了EC的最新性能，并作为该领域未来研究的基准。</p>
+<h3 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h3><p>&emsp;&emsp;早期的事件分类研究主要集中在为统计模型设计语言特征[1,9,12]。由于深度学习的发展，许多先进的网络结构被用来提高事件分类的准确性[5,19,17,18,21,13,22]。然而，没有一个像我们在这项工作中所做的那样，为EC研究few-shot学习问题。虽然最近的一些研究已经考虑了一个相关的设置，其中事件类型用一些关键字进行了扩充[3,24,11]，但这些工作并没有像我们在这项工作中所做的那样明确地检查few-shot学习设置。本文还对事件分类中的zero-shot学习进行了一些研究[8]。<br>&emsp;&emsp;Few-shot学习有助于模型在没有大规模数据的情况下学习有效的潜在特征。早期的研究将迁移学习应用于对预先训练好的模型进行微调，利用足够的实例从公共类中挖掘潜在的信息[4,2]。另一方面，度量学习则是学习对观察到的类之间的距离分布进行建模[10,28,26]。最近，元学习中引入了快速学习的概念，这种学习可以很快地概括为一个新的概念[25,6]。在这些方法中，与迁移学习和元学习相比，度量学习更易于解释，更易于训练和实施。值得注意的是，度量学习中的典型网络在几个FSL基准上取得了最新的性能，并显示了其对噪声数据的鲁棒性[26,7]。虽然有许多FSL方法被提出用于图像识别[10,28,26,6,25]，但是针对NLP问题的这种设置的研究很少[7,29]。</p>
+<h3 id="Methodology"><a href="#Methodology" class="headerlink" title="Methodology"></a>Methodology</h3><h4 id="Notation"><a href="#Notation" class="headerlink" title="Notation"></a>Notation</h4><p>&emsp;&emsp;Few-shot事件分类的任务是在给定一个支持集S和一组事件类型T={t1，t2，tN}（N是事件类型的数目）,来预测查询示例x的事件类型。在few-shot学习中，S包含了T中每个事件类型的几个示例。为了方便起见，我们将支撑集表示为：<br><img src="/2020/04/16/利用支持集中匹配信息的-few-shot-事件分类方法/1.png" alt="1"><br>其中(s_i^j,a_i^j,t_i)表示s_i^j语句中的a_i^j-th单词是事件类型t_i提到的触发单词，K_1,K_2,…,K_N分别代表的是对于t_1,t_2,…,t_N中的每一种类型在支持集中的示例数量。为了简单起见，我们使用w_1,w_2,…,w_l表示在这项工作中某个长度为l的句子的单词序列。<br>&emsp;&emsp;类似地，查询示例x也可以用x=（q，p，t）表示，其中q，p和t分别表示查询语句、语句中触发词的位置和该事件提及的真正事件类型。注意t∈T只在训练时间内提供，模型需要在测试时间内预测该事件类型。<br>&emsp;&emsp;实际上，S中的支持示例的数量（即K_1,K_2,…,K_N）可能有所不同。但是，为了简化处理并使用GPU加快训练过程，类似于FSL中的最新研究[7]，我们采用了N-way K-shot FSL设置。在此设置中，支持集中每个类的实例数相等（K_1=⋯ K_N=K&gt;1）和小（K∈{5,10}）。<br>&emsp;&emsp;请注意，为了评估EC的few-shot学习模型，我们需要训练数据Dtrain和测试数据Dtest。对于few-shot学习，关键是Dtrain和Dtest中的事件类型集合是不相交的。每一集的事件类型集合T将是Dtrain或Dtest中事件类型集合的一个样本，分别取决于训练和评估时间。另外，如引言中所述，在训练过程的一个阶段中，将对一组查询示例（即查询集）进行采样，以使其涉及与支持集相似的事件类型T，以及每种类型的示例查询集中的内容将与支持集中的内容不同。在测试时，将对测试集中所有样本的模型分类精度进行评估。</p>
+<h4 id="Few-shot-Learning-for-Event-Classification"><a href="#Few-shot-Learning-for-Event-Classification" class="headerlink" title="Few-shot Learning for Event Classification"></a>Few-shot Learning for Event Classification</h4><p>本工作中EC的few-shot学习框架遵循典型网络中的典型度量学习结构[26,7]，涉及到三个主要组件:实例编码器(instance encoder)、原型模块(prototypical module)、分类器模块(classifier module)。</p>
+<p><strong><em>Instance encoder</em> </strong><br>给定一个句子s={w_1,w_2,…,w_l}和触发词a的位置（即w_a是在句子s中事件提及的触发词，(s,a)是S或查询示例中的示例），遵循EC[19,5]中的一般做法，我们首先将每个单词w_i∈s转换成实值向量，以便于在接下来的步骤中进行神经计算。特别是，在这项工作中，我们使用以下两个向量的连接来表示每个单词w_i：</p>
+<ul>
+<li>w_i的预训练词嵌入:这个向量被期望用来捕获w_i隐藏的语法和语义信息[15]。</li>
+<li>w_i的位置嵌入：该向量是通过将其与触发词w_a（即i - a）的相对距离映射到位置嵌入表中的嵌入向量而获得的。位置嵌入表在模型训练过程中随机初始化和更新。位置嵌入向量的目的是明确地告知模型触发词在句子中的位置[5]。</li>
+</ul>
+<p>&emsp;&emsp;在将w_i转换成表示向量ei之后，输入语句s成为表示向量E = e1，e2，…el的序列。基于这个向量序列，一个神经网络结构f将会被用来将E转换成一个整体的表示向量v来对输入的例子(s, m)进行编码(v = f(s, m))。在这项工作中，我们研究了编码函数f的两种网络架构，即一个是基于CNN的早期EC架构，另一个是基于Transformer的最近流行的NLP架构:<br>&emsp;&emsp;<strong>CNN encoder: </strong>该模型对输入向量序列E进行窗口大小为k和多个滤波器的时域卷积运算，对输入语句的每个位置生成一个隐藏向量。然后通过最大池操作对这些隐藏向量进行聚合，得到(s, m)的整体表示向量v[5,7]。<br>&emsp;&emsp;<strong>Transformer encoder：</strong>这是一种先进的基于注意机制的矢量序列编码模型，不需要递归神经网络[27]。Transformer 编码器(encoder)涉及多层; 它们中的每一个都使用来自前一层的隐藏向量序列来生成当前层的隐藏向量序列。第一层以E为输入，而最后一层返回的隐藏向量序列(即触发字位置a处的向量)构成整个表示向量v。transformer编码器中的每一层都由两个子层（即多头的自我关注层和前馈层）组成，并在其周围增加一个剩余连接[27]。</p>
+<p><strong><em>Prototypical module</em> </strong><br>原型模块旨在计算单个原型向量来表示支持集T中的每个类。在这项工作中，我们考虑了文献中这个原型模块的两个版本。第一个版本来自原始的原型网络[26]。它仅使用支持集S中事件类型为ti的示例的表示向量的平均值来获取类ti的原型向量ci：<br><img src="/2020/04/16/利用支持集中匹配信息的-few-shot-事件分类方法/2.png" alt="2"><br>&emsp;&emsp;另一方面，第二个版本来自基于混合注意力的原型网络[7]。原型向量是支持集中实例的表示向量的加权和。示例权重(即注意力权重)是由支持集中的示例与查询示例x = (q, p, t)的相似度决定的:<br><img src="/2020/04/16/利用支持集中匹配信息的-few-shot-事件分类方法/3.png" alt="3"><br>&emsp;&emsp;在这个公式中，⊙是逐元素的乘法，sum是在输入向量的所有维度上进行的求和运算。</p>
+<p><strong><em>Classifier module</em> </strong><br>在本模块中，我们使用查询示例x = (q, p, T)到支持集中类/事件类型T的原型的距离，计算x在T中可能的类型的概率分布:<br><img src="/2020/04/16/利用支持集中匹配信息的-few-shot-事件分类方法/4.png" alt="4"><br>其中d为距离函数，ci和cj分别为式(2)和式(3)中的原型向量。<br>&emsp;&emsp;在本文中，我们考虑了三种常用的距离函数在不同的few-shot学习模型中使用度量学习:</p>
+<ul>
+<li>匹配网络中的余弦相似度(称为Matching)[28]。</li>
+<li>原型网络中的欧氏距离。根据原型向量是用方程2还是用方程3来计算，我们有两种不同的距离函数，分别称为Proto[26]和Proto+Att（即基于混合注意的原型网络[7]）。</li>
+<li>在关系网络中使用卷积神经网络的可学习距离函数（称为Relation）。给定概率分布P（y | x，S），训练few-shot学习框架的典型方法是优化x的负对数似然函数（t为x的基本真值事件类型）[26,7]：</li>
+</ul>
+<p><img src="/2020/04/16/利用支持集中匹配信息的-few-shot-事件分类方法/5.png" alt="5"></p>
+<p><strong><em>Matching the examples in the support set</em> </strong><br>等式5中的典型few-shot学习损失函数旨在通过原型向量将查询示例x与支持集S中的示例匹配来学习的。这种机制的一个问题是它只使用查询示例和支持示例之间的匹配信号进行训练。这对于大型数据集（例如，在计算机视觉中）是可以接受的，其中许多示例可以扮演查询示例的角色，为学习过程提供足够的训练信号。然而，对于EC，可用的数据集通常很小（例如，ACE 2005数据集只有大约几千个带注释的事件提及），这使得仅依赖查询示例来训练信号的效率降低。换言之，对于EC查询匹配的有限数据，few-shot学习框架可能无法得到很好的训练。因此，在这项工作中，我们提出通过额外利用支持集中的实例之间的匹配信息，为EC引入更多的训练信号以进行few-shot学习。特别是，由于支持集中每个类/类型有多个示例（尽管只有几个），因此我们为S中的每种类型选择了此类示例的子集，并增强模型使其能够将所选示例与其剩余支持集中的相应类型进行匹配。<br><img src="/2020/04/16/利用支持集中匹配信息的-few-shot-事件分类方法/6.png" alt="6"><br>&emsp;&emsp;在给定辅助支持集s^s的情况下，通过将辅助查询集S^Q中的示例与s^s进行匹配，寻求增强few-shot模型的训练信号。具体来说，我们首先在实例编码器和原型模块中使用相同的网络来计算辅助支持集s^s的T类的辅助原型。对于每个辅助实例z=（s_z,a_z,t_z）∈S^Q（s_z,a_z 和t_z分别是z中的句子、触发词位置和事件类型），我们使用分类器模块中的网络，基于辅助支持集s^s获得z中可能事件类型的概率分布P（.| z，s^s）。之后，我们通过引入辅助损失函数，增强模型可以正确预测辅助查询集S_ⅈ^Q中所有示例的事件类型（给定支持集s^s）：<br><img src="/2020/04/16/利用支持集中匹配信息的-few-shot-事件分类方法/7.png" alt="7"><br>最后，本文中训练模型所需优化的总损失函数为：<br><img src="/2020/04/16/利用支持集中匹配信息的-few-shot-事件分类方法/8.png" alt="8"><br>其中λ是主损失函数和辅助损失函数之间的权衡参数。为了方便起见，在以下实验中，我们将用于few-shot学习中具有辅助损失功能的训练方法称为LoLoss（即遗忘损失）。</p>
+<h3 id="Experiments"><a href="#Experiments" class="headerlink" title="Experiments"></a>Experiments</h3><h4 id="Datasets"><a href="#Datasets" class="headerlink" title="Datasets"></a>Datasets</h4><p>&emsp;&emsp;我们在ACE 2005上评估了本研究中的所有模型。ACE 2005包含33个事件子类型，分为8种事件类型：业务(Business)、联系(Contact)、冲突(Conflict)、正义(Justice)、生活(Life)、移动(Movement)、人员(Personnel)和事务(Transaction)。另一方面，TAC KBP数据集包含9种事件类型的38个事件子类型。由于事件子类型的数量较多，我们将使用这些数据集中的子类型作为few-shot学习问题的类。<br>&emsp;&emsp;由于我们希望在训练数据中最大化示例的数量，对于每个数据集（即，ACE 2005或TAC KBP 2015），我们在4个事件类型中选择示例总数最少的事件子类型，并以1:1的比率拆分为测试和开发类。按照这种启发式方法来选择类，ACE 2005中用于训练数据的事件类型涉及业务(Business)、联系(Contact)、冲突(Conflict)和正义(Justice)，而用于测试和开发数据的事件类型是生活(Life)、移动(Movement)、人员(Personnel)和事务(Transaction)。对于TAC KBP 2015，培训课程包括业务(Business)、联系(Contact)、冲突(Conflict)、正义(Justice)和制造(Manufacture)，而测试和开发课程包括生活(Life)、移动(Movement)、人员(Personnel)和事务(Transaction)。最后，由于打算遵循先前的几次学习的工作，在支持集中每个类有10个示例，在查询集中每个类有5个示例进行训练[7],因此我们删除了在数据集的训练，测试和开发集中少于15个示例的任何子类型的示例。</p>
+<h4 id="Hyper-Parameters"><a href="#Hyper-Parameters" class="headerlink" title="Hyper-Parameters"></a>Hyper-Parameters</h4><p>&emsp;&emsp;类似于先前的工作[7]，我们使用N，K∈{5,10}的N-way K-shot FSL设置评估所有模型。对于训练，我们避免在每个批次中输入相同的事件子类型集，以使训练批次更加多样化。因此，根据文献[7]，我们为每个培训批次采样了20个事件子类型，同时在测试时间内仍保留5个或10个类。<br>&emsp;&emsp;我们使用预先训练的300维GloVe嵌入初始化单词嵌入。单词嵌入在训练期间如文献[20]中所述进行更新。我们还随机初始化了50维的位置嵌入向量。根据数据集的开发数据选择其他参数，从而导致ACE 2005和TAC KBP 2015的参数相似。尤其是，CNN编码器包含一个窗口大小为3和250个过滤器的CNN层。我们设法使用这个简单的CNN编码器与之前的研究进行公平的比较[7]。Transformer编码器在注意机制中包含2个层，上下文大小为512，并且包含10个头部。辅助查询集Q中每个类别的示例数设置为2，而损失函数中的权衡参数λ为0.1。我们使用学习率为0.001的随机梯度下降来优化模型。</p>
+<h4 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h4><p>&emsp;&emsp;表1显示了使用CNN编码器和Transformer编码器的ACE 2005测试数据集上模型的准确性（即Matching、Proto、Proto+Att和Relation）。从表中可以看出几点。首先，比较实例编码器，很明显，在所有可能的few-shot学习模型和EC设置中，transformer编码器明显优于CNN编码器。第二，与few-shot学习模型相比，原型网络在所有设置下都显著优于Matching 和Relation，且性能差距较大。在原型网络中，Proto+Att的性能优于Proto，验证了原型模块基于注意机制的优点。第三，比较两组（5-way 5-shot VS 5-way 10-shot）和（10-way 5-shot VS 10-way 10-shot），我们发现在不同的设置下，当K值较大（即支持集中每个类的示例数）时，模型的性能几乎总是更好的，与自然直觉一致，即有更多的训练实例的好处。<br><img src="/2020/04/16/利用支持集中匹配信息的-few-shot-事件分类方法/9.png" alt="9"><br>&emsp;&emsp;最重要的是，我们发现使用LoLoss程序训练模型将显著提高模型的性能。这适用于不同的few-shot学习模型、N-way k -shot设置和编码器选择。实验结果清楚地证明了所提出的训练程序利用支持集中的示例之间的匹配信息进行EC的few-shot学习的有效性。为简单起见，在下面的分析中，我们仅关注最佳的few-shot学习模型（即原型网络）和5-way 5-shot 与10-way 10-shot下的Transformer编码器。尽管我们在表2和表3中以较少的设置和模型显示了结果，但对于其他模型和设置也观察到了相同的趋势。<br>&emsp;&emsp;表2还报告了TAC KBP 2015数据集上基于transformer的模型的准确性。从表中可以看出，我们对ACE 2005数据集的大部分观察结果仍然适用于TAC KBP 2015，再次证实了本文提出的LoLoss技术的优势。<br><img src="/2020/04/16/利用支持集中匹配信息的-few-shot-事件分类方法/10.png" alt="10"></p>
+<h4 id="Robustness-against-noise"><a href="#Robustness-against-noise" class="headerlink" title="Robustness against noise"></a>Robustness against noise</h4><p>在这一部分中，我们试图评估few-shot学习模型对训练数据中可能存在的噪声的鲁棒性。特别地，在每一个训练集中，对T中的每种类型采样一组示例以形成查询集Q，我们通过随机选择Q中的一部分示例进行标签扰动来模拟噪声数据。本质上，对于Q的选定子集中的每个示例，我们将其原始标签更改为T中的另一个随机标签，使其成为带有错误标签的噪声示例。通过更改Q中用于标签扰动的选定部分的大小，我们可以控制EC中FSL训练过程中的噪声水平。<br><img src="/2020/04/16/利用支持集中匹配信息的-few-shot-事件分类方法/11.png" alt="11"><br>表3显示了Proto + Att模型在ACE 2005测试集上的准确性，该模型采用带有或不带有LoLoss训练程序的Transformer编码器以用于不同的噪声率。从表中可以看出，引入噪声数据通常会降低模型的准确性（即，将表3中的单元与表1中基于Proto + Att的模型进行比较）。然而，在不同的噪声率和N-way K-shot设置下，使用LoLoss训练的Proto+Att模型始终明显优于未使用LoLoss的模型。在不同的设置下，性能差距至少是4.5%。事实上，我们发现LoLoss对Proto+Att的改善在有噪声的情况下(即至少4.5%)比无噪声的情况下更加显著(即。在表1中，5-way 5-shot 和10-way 10-shot的设置最多为3.3%)。这些证据进一步证实了LoLoss利用支持集中样本间的匹配信息来进行fen-shot学习的有效性和对噪声数据的鲁棒性。</p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><p>在这篇论文中，我们进行了第一个研究few-shot学习的事件分类。我们针对此问题研究了不同的量度学习方法，以典型的原型网络框架为特色，并为实例编码器（即CNN和Transformer）提供了多种选择。此外，我们提出了一种新的技术，称为LoLoss，用于训练基于支持集实例匹配信息的EC的few-shot学习模型。提出的LoLoss技术适用于不同数据集和设置的不同few-shot学习方法，有助于显著提高基线模型的性能。在未来，我们计划对LoLoss进行few-shot学习，以解决其他NLP和视觉问题(如关系提取、图像分类)。</p>
+<h3 id="Acknowledgments"><a href="#Acknowledgments" class="headerlink" title="Acknowledgments"></a>Acknowledgments</h3><p>This research has been supported in part by Vingroup Innovation Foundation (VINIF) in project code VINIF.2019.DA18 and Adobe Research Gift. This research is also based upon work supported in part by the Office of the Director of National Intelligence (ODNI), Intelligence Advanced Research Pro</p>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><p>略！</p>
+<hr>
+
+      
+    </div>
+
+    <div align="center">
+      
+        <div class="copyright">
+        <p><span>
+        <b>本文地址：</b><a href="/2020/04/16/利用支持集中匹配信息的-few-shot-事件分类方法/" title="利用支持集中匹配信息的 few shot 事件分类方法">https://tonynyl.github.io/2020/04/16/利用支持集中匹配信息的-few-shot-事件分类方法/</a><br><b>转载请注明出处，谢谢！</b>
+        </span></p>
+        </div>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay-reward-image.jpg" alt="TonyNYL Alipay">
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/12/精确率和召回率/" rel="next" title="精确率和召回率">
+                <i class="fa fa-chevron-left"></i> 精确率和召回率
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+                  <div onclick="showGitment()" id="gitment_title" class="gitment_title">显示 Gitment 评论</div>
+                  <div id="container" style="display:none"></div>
+                  <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+                  <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+                  <script>
+                  const myTheme = {
+                    render(state, instance) {
+                      const container = document.createElement('div');
+                      container.lang = "en-US";
+                      container.className = 'gitment-container gitment-root-container';
+                      container.appendChild(instance.renderHeader(state, instance));
+                      container.appendChild(instance.renderEditor(state, instance));
+                      container.appendChild(instance.renderComments(state, instance));
+                      container.appendChild(instance.renderFooter(state, instance));
+                      return container;
+                    }
+                  }
+                  function showGitment() {
+                    $("#gitment_title").attr("style", "display:none");
+                    $("#container").attr("style", "").addClass("gitment_container");
+                    var gitment = new Gitment({
+                      id: window.location.pathname,
+                      theme: myTheme,
+                      owner: 'TonyNYL',
+                      repo: 'TonyNYL.github.io',
+                      oauth: {
+                        client_id: '88bb41cf560e8dffb12a',
+                        client_secret: '6bcdbea43588fb2e14ef07a4e3508a22bed255e1'
+                      }
+                    });
+                    gitment.render('container');
+                  }
+                  </script>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="TonyNYL">
+          <p class="site-author-name" itemprop="name">TonyNYL</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/TonyNYL" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://douban.com/" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  豆瓣
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons">
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-link"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://tonynyl.github.io/yuanlong/" title="主页" target="_blank">主页</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Related-Work"><span class="nav-number">2.</span> <span class="nav-text">Related Work</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Methodology"><span class="nav-number">3.</span> <span class="nav-text">Methodology</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Notation"><span class="nav-number">3.1.</span> <span class="nav-text">Notation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Few-shot-Learning-for-Event-Classification"><span class="nav-number">3.2.</span> <span class="nav-text">Few-shot Learning for Event Classification</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Experiments"><span class="nav-number">4.</span> <span class="nav-text">Experiments</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Datasets"><span class="nav-number">4.1.</span> <span class="nav-text">Datasets</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hyper-Parameters"><span class="nav-number">4.2.</span> <span class="nav-text">Hyper-Parameters</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Results"><span class="nav-number">4.3.</span> <span class="nav-text">Results</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Robustness-against-noise"><span class="nav-number">4.4.</span> <span class="nav-text">Robustness against noise</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Conclusion"><span class="nav-number">5.</span> <span class="nav-text">Conclusion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Acknowledgments"><span class="nav-number">6.</span> <span class="nav-text">Acknowledgments</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#References"><span class="nav-number">7.</span> <span class="nav-text">References</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">
+  
+  &copy;  201 - 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="heart">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TonyNYL</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+<!-- 新增访客统计代码 -->
+
+<div class="busuanzi-count">
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      访问用户： <span class="busuanzi-value" id="busuanzi_value_site_uv"></span> 人
+    </span>
+    <div class="powered-by"></div>
+    <span class="site-uv">
+      <i class="fa fa-eye"></i>
+      访问次数： <span class="busuanzi-value" id="busuanzi_value_site_pv"></span> 次
+    </span>
+    <div class="powered-by"></div>
+    <!-- 博客字数统计 -->
+    <span class="site-pv">
+      <i class="fa fa-pencil"></i>
+      博客全站共： <span class="post-count">29.6k</span> 字
+    </span>
+</div>
+<!-- 新增访客统计代码 END-->
+
+
+<!-- 在网页底部添加网站运行时间 -->
+<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("03/31/2017 00:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "Run for "+dnum+" Days ";
+        document.getElementById("times").innerHTML = hnum + " Hours " + mnum + " m " + snum + " s";
+    }
+setInterval("createtime()",250);
+</script>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+  </div>
+
+
+  
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+<script type="text/javascript" src="/js/src/photoswipe.min.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/photoswipe-ui-default.min.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+</body>
+</html>
