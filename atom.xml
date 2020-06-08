@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tonynyl.github.io/"/>
-  <updated>2020-04-16T09:02:11.527Z</updated>
+  <updated>2020-06-08T07:48:00.880Z</updated>
   <id>https://tonynyl.github.io/</id>
   
   <author>
@@ -14,6 +14,58 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>随机游走算法</title>
+    <link href="https://tonynyl.github.io/2020/06/08/%E9%9A%8F%E6%9C%BA%E6%B8%B8%E8%B5%B0%E7%AE%97%E6%B3%95/"/>
+    <id>https://tonynyl.github.io/2020/06/08/随机游走算法/</id>
+    <published>2020-06-08T07:20:40.000Z</published>
+    <updated>2020-06-08T07:48:00.880Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>简介</p>
+</blockquote>
+<h3 id="推荐基本概念"><a href="#推荐基本概念" class="headerlink" title="推荐基本概念"></a>推荐基本概念</h3><p>用户user=[A,B,C],物品item=[a,b,c,d]，用户和物品有以下的关系:</p>
+<a id="more"></a>
+<p><img src="/2020/06/08/随机游走算法/1.png" alt="1"><br>上述便是一个典型的二分图，我们用G(V,E)来表示，其中V为用户user和物品item组成的顶点集即[A,B,C,a,b,c,d]，而E则代表每一个二元组(u，i)之间对应的边e(u，i)，我们这里不考虑用户对物品的喜爱程度，即默认喜爱则e=1，不喜爱则e=0。<br>那么我们如何使用上述的二分图模型进行物品的推荐呢？根据用户与物品的相关性，对于相关性高的顶点有如下的定义：</p>
+<p>(1)两个顶点之间有很多路径相连<br>(2)连接两个顶点之间的路径长度都比较短<br>(3)连接两个顶点之间的路径不会经过度比较大的顶点</p>
+<p>上面有一个概念需要理解，度，顶点的度是指和该顶点相关联的边数。</p>
+<blockquote class="blockquote-center"><p>基于上述的定义，我们这里使用基于随机游走的算法来计算</p>
+</blockquote>
+<h3 id="PageRank"><a href="#PageRank" class="headerlink" title="PageRank"></a>PageRank</h3><p>它的基本思想是，假设网页之前通过超链接相互连接，互联网上的所有网页便构成了一张图。用户随机的打开一个网页，并通过超链接跳转到另一个网页。每当用户到达一个网页，他都有两种选择，停留在当前网页或者通过继续访问其他网页。如果用户继续访问网页的概率为d，那么用户停留在当前网页的概率便是1-d。如果用户继续访问其他网页，则会以均匀分布的方式随机访问当前网页指向的另一网页，这是一个随机游走的过程。当用户多次访问网页后，每一个网页被访问到的概率便会收敛到某个值，而计算出来的结果便可以用于网页排名，我们用以下的公式来表示：<br><img src="/2020/06/08/随机游走算法/2.png" alt="2"><br>其中PR(i)是网页i被访问到的概率，d代表用户继续访问网页的概率，N为所有网页的数量，in(i)代表所有指向网页i的网页集合，out(j)代表网页j指向的其他网页集合。</p>
+<p>接下来我们分析一下这个公式，网页i被访问到的概率由两部分组成：</p>
+<p>第一部分是网页i作为起点，第一个被用户点击后停留在当前页面的概率，即:</p>
+<p><img src="/2020/06/08/随机游走算法/3.png" alt="3"><br>第二部分是用户点击其他网页后(无论网页i是不是起点)，再次跳转回到网页i的概率:<br><img src="/2020/06/08/随机游走算法/4.png" alt="4"><br>这两部分的和便是网页i被点击到的概率</p>
+<h3 id="PersonalRank"><a href="#PersonalRank" class="headerlink" title="PersonalRank"></a>PersonalRank</h3><p>在pageRank算法中，计算出来的是每一个顶点相对其他顶点的相关性，代入到我们的用户物品二分图中，这显然不是我们想要的，我们需要的是所有物品相对于特定某个用户的相关性，有公式如下：<br><img src="/2020/06/08/随机游走算法/5.png" alt="5"><br><img src="/2020/06/08/随机游走算法/6.png" alt="6"><br>对比pageRank，不同点只在于r的值不同，u代表根节点，即我们的目标用户节点，意思便是我们每次都是从目标用户节点出发，进行随机游走，而不同于pageRank的起点是随机从所有网页中进行选择，personalRank算法得出的结果便是所有顶点相对于目标用户结点的相关性。</p>
+<h3 id="TextRank"><a href="#TextRank" class="headerlink" title="TextRank"></a>TextRank</h3><p>TextRank 算法是一种用于文本的基于图的排序算法，通过把文本分割成若干组成单元（句子），构建节点连接图，用句子之间的相似度作为边的权重，通过循环迭代计算句子的TextRank值，最后抽取排名高的句子组合成文本摘要</p>
+<ul>
+<li>抽取型摘要：这种方法依赖于从文本中提取几个部分，例如短语、句子，把它们堆叠起来创建摘要。因此，这种抽取型的方法最重要的是识别出适合总结文本的句子。</li>
+<li>抽象型摘要：这种方法应用先进的NLP技术生成一篇全新的总结。可能总结中的文本甚至没有在原文中出现</li>
+</ul>
+<p>现在我们已经掌握了PageRank，让我们理解TextRank算法。我列举了以下两种算法的相似之处：</p>
+<ul>
+<li>用句子代替网页</li>
+<li>任意两个句子的相似性等价于网页转换概率</li>
+<li>相似性得分存储在一个方形矩阵中，类似于PageRank的矩阵M<br><img src="/2020/06/08/随机游走算法/7.png" alt="7"></li>
+</ul>
+<h3 id="SimRank"><a href="#SimRank" class="headerlink" title="SimRank"></a>SimRank</h3><p>解决数据稀疏性的问题</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;简介&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;推荐基本概念&quot;&gt;&lt;a href=&quot;#推荐基本概念&quot; class=&quot;headerlink&quot; title=&quot;推荐基本概念&quot;&gt;&lt;/a&gt;推荐基本概念&lt;/h3&gt;&lt;p&gt;用户user=[A,B,C],物品item=[a,b,c,d]，用户和物品有以下的关系:&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="机器学习/深度学习/大数据" scheme="https://tonynyl.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    
+      <category term="知识点汇总" scheme="https://tonynyl.github.io/tags/%E7%9F%A5%E8%AF%86%E7%82%B9%E6%B1%87%E6%80%BB/"/>
+    
+      <category term="算法" scheme="https://tonynyl.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>利用支持集中匹配信息的 few shot 事件分类方法</title>
