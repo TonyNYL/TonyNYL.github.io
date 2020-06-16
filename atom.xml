@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tonynyl.github.io/"/>
-  <updated>2020-06-08T07:48:00.880Z</updated>
+  <updated>2020-06-16T12:33:08.899Z</updated>
   <id>https://tonynyl.github.io/</id>
   
   <author>
@@ -14,6 +14,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Win10 + python3下anaconda的安装及环境变量的配置</title>
+    <link href="https://tonynyl.github.io/2020/06/16/Win10-python3%E4%B8%8Banaconda%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E9%85%8D%E7%BD%AE/"/>
+    <id>https://tonynyl.github.io/2020/06/16/Win10-python3下anaconda的安装及环境变量的配置/</id>
+    <published>2020-06-16T12:16:42.000Z</published>
+    <updated>2020-06-16T12:33:08.899Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>简介</p>
+</blockquote>
+<p>添加环境变量之后，就可以在任意位置的cmd下使用conda命令。</p>
+<a id="more"></a>
+<h3 id="win10下找到环境变量的位置"><a href="#win10下找到环境变量的位置" class="headerlink" title="win10下找到环境变量的位置"></a>win10下找到环境变量的位置</h3><p>点击“此电脑”右键，选中属性按钮，再点击“高级系统设置”，即可看到下面的界面：<br><img src="/2020/06/16/Win10-python3下anaconda的安装及环境变量的配置/1.jpg" alt="1"></p>
+<h3 id="找到系统变量path"><a href="#找到系统变量path" class="headerlink" title="找到系统变量path"></a>找到系统变量path</h3><p>点击上面界面的“环境变量”，即可。如下图所示：<br><img src="/2020/06/16/Win10-python3下anaconda的安装及环境变量的配置/2.jpg" alt="2"></p>
+<h3 id="添加配置"><a href="#添加配置" class="headerlink" title="添加配置"></a>添加配置</h3><p>在path中添加如下路径，如下所示：</p>
+<p><code>D:\software\Anaconda3</code><br><code>D:\software\Anaconda3\Scripts</code><br><code>D:\software\Anaconda3\Library\bin</code><br><code>D:\software\Anaconda3\Library\mingw-w64\bin</code></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;简介&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;添加环境变量之后，就可以在任意位置的cmd下使用conda命令。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="环境配置问题" scheme="https://tonynyl.github.io/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E9%97%AE%E9%A2%98/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>随机游走算法</title>
